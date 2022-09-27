@@ -1,7 +1,7 @@
 <?php
-define('DBHOST', 'localhost');
-define('DBNAME', 'art');
-define('DBUSER', 'root');
-define('DBPASS', '');
-define('DBCONNSTRING', "sqlite:./databases/music.db");
-?>
+  define('DBHOST', 'localhost');
+  define('DBNAME', 'music');
+  define('DBUSER', 'root');
+  define('DBPASS', '');
+  define('DNS', "mysql:host=" . DBHOST . ";dbname=" . DBNAME . ";");
+  function getConnection($dns, $dbuser, $dbpass){$pdo = new PDO($dns, $dbuser, $dbpass)} ?>
