@@ -1,0 +1,28 @@
+This file will serve as a place to assert my current understanding
+of Model-View-Controller (MVC) architecture, and how I plan to use it for
+this project.
+
+MODEL
+===========================================================================
+The model portion of the project takes care of all data related logic.
+This means that any queries that will interact with the MySQL DB will
+be a part of the model folder. The model interacts with the controller,
+by receiving the user information, and then constructing queries out of that.
+===========================================================================
+
+VIEW
+==========================================================================
+The view portion of the project encompasses all of what the end user sees,
+AKA the UI of the project. This will include five PHP pages that are strictly
+going to be mainly composed of plain old HTML, along with some CSS styling.
+Queried data that has been processed will be displayed in the view section.
+Dynamic values will be passed to the View by the controller.
+==========================================================================
+
+CONTROLLER
+==========================================================================
+The controller will act as a middleman between the model and the view.
+This will work by receiving user input, processing form requests and then
+sending the info over to the model. It also receives data from the model,
+and then passes that data back to the view for it to be displayed.
+==========================================================================

@@ -28,7 +28,7 @@ require_once 'config.inc.php';
          <div class="sub-input valence"> </div>
          <div class="sub-input acousticness"> </div>
          <div class="sub-input speechiness"> </div>
-         
+
        </form>
 
      </section>
