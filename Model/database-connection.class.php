@@ -6,7 +6,8 @@
     private $dbName = "music";
 
     # Establishing a connection with the database
-    function databaseConnect(){
+    # We only want classes that extend this class to be able to access the DB, hence protected.
+    protected function databaseConnect(){
       $dsn = 'mysql:host=' . $this->dbHost . ';dbname=' . $this->dbName;
       $pdo = new PDO($dsn, $this->dbUser, $this->dbPass);
       // Setting the default fetch attribute to be associative arrays.

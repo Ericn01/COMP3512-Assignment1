@@ -12,7 +12,14 @@ require_once 'config.inc.php';
 <body>
    <header> </header>
    <main class="ui grid-container">
-
+     <div class="link-box top-genres"> </div>
+     <div class="link-box top-artists"> </div>
+     <div class="link-box popular-songs"> </div>
+     <div class="link-box one-hit"> </div>
+     <div class="link-box longest-acoustic"> </div>
+     <div class="link-box club-songs"> </div>
+      <div class="link-box running-songs"> </div>
+      <div class="link-box studying-songs"> </div>
    </main>
    <footer> </footer>
 </body>
