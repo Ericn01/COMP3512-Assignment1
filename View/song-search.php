@@ -33,7 +33,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Home Page</title>
+   <title>Song Search</title>
    <link href="css/song-search-styling.css" rel="stylesheet">
    <link href="css/font-selection.css" rel="stylesheet">
 </head>

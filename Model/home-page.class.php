@@ -31,8 +31,8 @@
     }
 
     # Returns the most popular songs on spotify within the list.
-    protected function getMostPopularSongs(){
-      $sql = "SELECT songs.title AS `Song Name`, artists.artist_name AS `Artist Name`
+    function getMostPopularSongs(){
+      $sql = "SELECT songs.title AS `Song Name`, songs.year AS `Year`, artists.artist_name AS `Artist Name`
               FROM artists
               INNER JOIN songs ON artists.artist_id = songs.artist_id
               GROUP BY artists.artist_id
