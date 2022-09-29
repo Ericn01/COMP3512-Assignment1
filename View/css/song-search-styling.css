@@ -1,0 +1,68 @@
+.advanced-song-search{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px 10px;
+    padding: 1rem 3rem;
+}
+
+.sub-input{
+    padding: 20px;
+    border: 1px solid black;
+}
+
+label{
+    font-weight: bold;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: start;
+}
+
+.less-input .greater-input{
+    width: 30px;
+}
+
+.basic-song-search .advanced-song-search{
+    border: 1px solid black;
+    background-color: gray;
+}
+.year-sub-inputs{
+    margin-left: 20px;
+}
+input[type='radio']{
+    margin-right: 7.5px;
+
+}
+input[type='text'], select {
+    margin-left: 1rem;
+    float: right;
+    width: 50px;
+    padding: 3px;
+}
+button{
+    float: right;
+    padding: 5px;
+    width: 6rem;
+    background-color: rgba(173, 216, 230, 0.3);
+    border-radius: 7.5px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+.less-greater-inputs{
+    margin-left: 12px;
+}
+.paragraphClass{
+    margin-left: 10px;
+}
+
+form{
+    padding: 20px;
+    margin: 10px 10px 15px 5px;
+    background-color: rgba(78, 68, 68, 0.13);
+}
+
+form > h1{
+    text-align: center;
+}
