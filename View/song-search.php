@@ -3,20 +3,20 @@
   # This is reused everywhere on this page, so might as well make it a function.
   function makeLessAndGreaterMarkup(){
     $paragraphClass = 'less-greater-inputs';
-    // Less input value section 
+    // Less input value section
     echo "<p class='$paragraphClass'>";
-      echo "<input type='radio' name='greater-less'/>";
-      echo "<label for='less'> Less </label>"; 
+      echo "<input type='radio' name='greater-less-between'/>";
+      echo "<label for='less'> Less </label>";
       echo "<input type='text' class='less-input'>";
     echo "</p>";
-    // Greater input value section 
+    // Greater input value section
     echo "<p class='$paragraphClass'>";
-      echo "<input type='radio' name='greater-less'/>";
-      echo "<label for='greater'> Greater </label>"; 
+      echo "<input type='radio' name='greater-less-between'/>";
+      echo "<label for='greater'> Greater </label>";
       echo "<input type='text' class='greater-input'>";
     echo "</p>";
   }
-  # Responsible for generating the advanced song search boxes within the 
+  # Responsible for generating the advanced song search boxes within the
   function makeAttributeBox($attributeName){
     echo "<div class='sub-input $attributeName'>";
       echo "<input type='radio' name='attribute'/>";
@@ -25,8 +25,8 @@
     echo "</div>";
   }
   $control = new SongSearchController();
-  $genreOptions = $control->genresMarkup();
-  $artistOptions = $control->artistMarkup();
+  $genres = $control->genresMarkup();
+  $artists = $control->artistMarkup();
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,6 +35,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Home Page</title>
    <link href="css/song-search-styling.css" rel="stylesheet">
+   <link href="css/font-selection.css" rel="stylesheet">
 </head>
 <body>
    <header> </header>
@@ -54,12 +55,12 @@
           <p class='input'>
             <input type='radio' name='basic-song-selection'>
             <label for='basic-song-selection'> Artist </label>
-            <select name='artist-selection'> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
-              <?php 
-        
-              // foreach($rows as $value){
-              //   echo "<option value=" . $value['artist_name'] . ">" . $value['artist_name'] . "</option>";
-              // }; 
+            <select name='artist-selection' value=""> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
+              <?php
+              foreach($artists as $a){
+                $artistName = $a['Artist Name'];
+                echo "<option value='$artistName'> $artistName </option>";
+              }
             ?>
             </select>
           </p>
@@ -67,12 +68,12 @@
           <p class='input'>
             <input type='radio' name='basic-song-selection'>
             <label for='basic-song-selection'> Genre </label>
-            <select name='genre-selection'> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
-              <?php 
-              
-              //  foreach($rows as $value){
-              //   echo "<option value=" . $value['genre_name'] . ">" . $value['genre_name'] . "</option>";
-              // };  
+            <select name='genre-selection' value=""> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
+              <?php
+              foreach($genres as $g){
+                $genreName = $g['Genre Name'];
+                echo "<option value='$genreName'> $genreName </option>";
+              }
               ?>
             </select>
           </p>
@@ -84,7 +85,7 @@
 
           <div class='year-sub-inputs'>
             <?php makeLessAndGreaterMarkup() ?>
-            <input type='radio' name='between-input'> 
+            <input type='radio' name='greater-less-between'>
             <label for='between-input'> Between </label>
             <input type='text' name='between-low-param' value=1950>
             <br><br>
@@ -98,7 +99,7 @@
         <!-- Advanced song search section -->
         <h2> Advanced Song Search </h2>
         <div class='advanced-song-search'>
-            <?php 
+            <?php
               define('NUM_BOXES',  6); // Number of boxes that we are going to be printing out to the screen
               $attributes = array('energy', 'danceability', 'liveness', 'valence', 'acousticness', 'speechiness');
               for ($i = 0; $i < NUM_BOXES; $i++){

@@ -2,13 +2,35 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 5px 10px;
+    gap: 25px 8px;
     padding: 1rem 3rem;
 }
 
 .sub-input{
-    padding: 20px;
+    padding: 30px;
     border: 1px solid black;
+    box-shadow: 2px 1px 3px black;
+
+}
+/* Adding background images to the sub fields*/
+.energy{
+  background-image: url("../images/energy.jpg");
+}
+.danceability{
+  background-image: url("../images/danceability.jpg");
+}
+.liveness{
+  background-image: url("../images/liveness.jpg");
+}
+.valence{
+  background-image: url("../images/valence.jpg");
+}
+
+.acousticness{
+  background-image: url("../images/acousticness.jpg");
+}
+.speechiness{
+  background-image: url("../images/speechiness.jpg");
 }
 
 label{
@@ -17,13 +39,22 @@ label{
 
 .flex-container{
     display: flex;
-    justify-content: start;
+    width: 100%;
 }
 
 .less-input .greater-input{
     width: 30px;
 }
-
+.basic-search-form{
+  background-color: #FF9A8B;
+  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+  width: 35%;
+}
+.advanced-search-form{
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  width: 65%;
+}
 .basic-song-search .advanced-song-search{
     border: 1px solid black;
     background-color: gray;
@@ -38,8 +69,11 @@ input[type='radio']{
 input[type='text'], select {
     margin-left: 1rem;
     float: right;
-    width: 50px;
+    width: 120px;
     padding: 3px;
+    border: none;
+    background: none;
+    border-bottom: 2px solid black;
 }
 button{
     float: right;
@@ -54,15 +88,16 @@ button{
     margin-left: 12px;
 }
 .paragraphClass{
-    margin-left: 10px;
+    margin-left: 12px;
 }
 
 form{
+    box-shadow: 1px 1px 10px black;
     padding: 20px;
     margin: 10px 10px 15px 5px;
     background-color: rgba(78, 68, 68, 0.13);
 }
 
-form > h1{
+form h1{
     text-align: center;
 }
