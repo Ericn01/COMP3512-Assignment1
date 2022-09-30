@@ -39,6 +39,15 @@
     echo "</ol>";
   }
 
+  function viewOneHitWonders($controller){
+    $oneHitWonders = $controller->oneHitWonders();
+    echo "<ol>";
+    foreach($oneHitWonders as $row){
+      echo "<li> " . $row['Artist Name'] . " -> " . $row['Num Songs'] . " songs </li>";
+    }
+    echo "</ol>";
+  }
+
   function viewRunningSongs($controller){
     $runningSongs = $controller->runningSongs();
     echo "<ol>";
@@ -74,6 +83,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Home</title>
    <link href="css/home-styles.css" rel="stylesheet">
+   <link href="css/font-selection.css" rel="stylesheet">;
 </head>
 <body>
    <header> </header>
@@ -85,7 +95,8 @@
       <?php viewTopArtists($homeControl); ?> </div>
      <div class="link-box popular-songs"> Most Popular Songs
        <?php viewPopularSongs($homeControl); ?> </div>
-     <div class="link-box one-hit"> One Hit Wonders </div>
+     <div class="link-box one-hit"> One Hit Wonders
+     <?php viewOneHitWonders($homeControl); ?> </div>
      <div class="link-box longest-acoustic"> Longest Acoustic Songs
        <?php viewLongestAcousticSongs($homeControl); ?> </div>
      <div class="link-box club-songs"> At The Club

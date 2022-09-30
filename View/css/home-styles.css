@@ -14,17 +14,20 @@ h1{
   margin: 10px;
   background-color: lightpurple;
   border: 1px solid black;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 2px 2px 8px black;
   color: white;
   text-shadow: 1.5px 1.5px 2.5px black;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   text-align: center;
   object-fit: cover;
 }
 
 .link-box:hover{
-  transform: rotate3d(0, 0, 0.5, 30);
+  transition: 0.35s ease-in;
+  transform: scale(1.035);
+  font-weight: 700;
+  cursor: pointer;
 }
 /* CSS for the background images of the links */
 .top-genres{
@@ -60,5 +63,5 @@ li{
   padding-bottom: 5px;
   text-align: left;
   font-weight: 500;
-  color: pink;
+  color: snow;
 }

@@ -42,11 +42,14 @@
       return $results;
     }
     # Returns artists who only have one song in the DB. Sorted by song popularity.
+    # Only way I can think of doing this one is to use a subquery to check the
+    # number of appearences of a certain artist,
     protected function getOneHitWonders(){
-      $sql = "SELECT artist_id AS `Artist ID`, popularity
+      $sql = "SELECT artists.artist_name AS `Artist Name`, COUNT(songs.artist_id) AS `Num Songs`
               FROM songs
-              WHERE COUNT(artist_id) = 1
-              ORDER BY popularity DESC
+              INNER JOIN artists ON artists.artist_id = songs.artist_id
+              GROUP BY artists.artist_id
+              ORDER BY songs.popularity DESC
               LIMIT 10";
       $results = $this->databaseConnect()->query($sql);
       return $results;
