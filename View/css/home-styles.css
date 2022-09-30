@@ -4,10 +4,11 @@ h1{
 
 .grid-container{
   background-color: gray;
+  background: linear-gradient(#ff9966, #ff5e62);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px 17.5px;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* Make 4 columns of equal size*/
+  grid-template-rows:repeat(2, minmax(0, 1fr));
+  gap: 7.5px 12.5px;
   margin: 25px;
 }
 .link-box{
@@ -21,6 +22,7 @@ h1{
   font-weight: bold;
   text-align: center;
   object-fit: cover;
+  background-repeat: no-repeat;
 }
 
 .link-box:hover{
@@ -59,9 +61,31 @@ h1{
 /* List styling */
 
 li{
-  font-size: 16px;
+  font-size: 14px;
   padding-bottom: 5px;
   text-align: left;
   font-weight: 500;
   color: snow;
+}
+
+/* Responsive grid layout */
+
+/* Grid problems first begin to show up when the width hits 1250px */
+@media only screen and (max-width: 1250px){
+  .grid-container{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Happy with how this looks on phone screens! Grid makes responsive designs easy */
+@media only screen and (max-width: 600px){
+  .grid-container{
+    grid-template-columns: 1fr;
+}
+  .link-box{
+    font-size: 20px;
+  }
+
+  li{
+    font-size: 11px;
+  }
 }
