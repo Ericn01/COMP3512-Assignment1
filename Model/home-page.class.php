@@ -53,7 +53,7 @@
     }
     # Returns the most acoustic songs with the longest length.
     protected function getLongestAcousticSongs(){
-      $sql = "SELECT title AS `Song Title`, acousticness
+      $sql = "SELECT title AS `Song Title`, acousticness, duration
               FROM songs
               WHERE acousticness > 40
               ORDER BY duration DESC
