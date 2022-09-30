@@ -1,12 +1,19 @@
 <?php
   include '../Model/single-song.class.php';
-
   /* I'm going to use this class to organize the presentation of
-  the data that I want to present (example: x song is #y most [analysis_data]),
+  the data that I want to present (example: x song ranks as #y in [analysis_data]),
   along with formatting it in the proper way (seconds to minutes) for duration.
   The markup is going to be generated here, sent to the view and then CSS styling
   will be applied on top from there. */
   class SingleSongController extends SingleSong{
+
+    public function songInfo($song_id){
+        $songData = this->getSongData($song_id);
+        return $songData;
+    }
+    public function bpm(){
+      return null
+    }
     public function fetchSongs(){
       $songData = $this->getSongs();
 
@@ -33,4 +40,10 @@
       // return array($baseArr, $analysisArr);
     }
   }
+
+    public function selectInfoByGenre($genre, $songInfo){
+      switch($genre){
+        case ''
+      }
+    }
 ?>
