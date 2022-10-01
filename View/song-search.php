@@ -19,7 +19,7 @@
   # Responsible for generating the advanced song search boxes within the
   function makeAttributeBox($attributeName){
     echo "<div class='sub-input $attributeName'>";
-      echo "<input type='radio' name='attribute'/>";
+      echo "<input type='radio' name='attribute' value='$attributeName'/>";
       echo "<label for='attribute'>" . ucfirst($attributeName) . "</label>";
       makeLessAndGreaterMarkup();
     echo "</div>";
@@ -40,20 +40,20 @@
 <body>
    <header> </header>
    <main class="flex-container">
-     <form class='basic-search-form' action='<?php echo $_SERVER['PHP_SELF']; ?>' method='get'>
+     <form class='basic-search-form' action='../Model/test.php' method='POST'>
         <!-- Basic song search section -->
         <div class="basic-song-search">
           <h2> Basic Song Search </h2>
           <!-- Title Input -->
           <p class='input'>
-            <input type='radio' name='basic-song-selection'>
+            <input type='radio' name='basic-song-selection' value='title' checked>
             <label for='basic-song-selection'> Title </label>
             <input type='text' name='title'/>
           </p>
 
           <!-- Artist Section -->
           <p class='input'>
-            <input type='radio' name='basic-song-selection'>
+            <input type='radio' name='basic-song-selection' value='artist'>
             <label for='basic-song-selection'> Artist </label>
             <select name='artist-selection'> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
               <option value="" default> Select an artist </option>
@@ -67,7 +67,7 @@
           </p>
           <!-- Genre Section -->
           <p class='input'>
-            <input type='radio' name='basic-song-selection'>
+            <input type='radio' name='basic-song-selection' value='genre'>
             <label for='basic-song-selection'> Genre </label>
             <select name='genre-selection' value=""> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
               <option value="" default> Select a genre </option>
@@ -81,7 +81,7 @@
           </p>
            <!-- Year Section -->
           <p class='input'>
-            <input type='radio' name='basic-song-selection'>
+            <input type='radio' name='basic-song-selection' value='year'>
             <label for='basic-song-selection'> Year </label>
           </p>
 
@@ -93,11 +93,11 @@
             <br><br>
             <input type='text' name='between-high-param'>
             <br><br> <!-- Change later -->
-            <button> Search </button>
+            <button type="submit" name="submit-basic"> Search </button>
           </div>
         </div>
       </form>
-      <form class='advanced-search-form' action='<?php echo $_SERVER['PHP_SELF']; ?>' method='GET'>
+      <form class='advanced-search-form' action='../Model/test.php' method='POST'>
         <!-- Advanced song search section -->
         <h2> Advanced Song Search </h2>
         <div class='advanced-song-search'>
@@ -109,7 +109,7 @@
               }
             ?>
         </div>
-        <button> Search </button>
+        <button type="submit" name="submit-advanced"> Search </button>
       </form>
    </main>
    <footer> </footer>

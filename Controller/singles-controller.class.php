@@ -24,16 +24,16 @@
     public function interpretPopularity($popularity){
       $popularityInt = intval($popularity);
       $popInterpret= "Relative to others, this song is ";
-      if ($popularity <= 20){
+      if ($popularity <= 30){
         $popInterpret . " not popular";
       }
-      else if ($popularityInt > 20 && $popularityInt <= 45){
+      else if ($popularityInt > 30 && $popularityInt <= 60){
         $popInterpret .= " somewhat popular";
       }
-      else if ($popularityInt > 45 && $popularityInt <= 70){
+      else if ($popularityInt > 60 && $popularityInt <= 80){
         $popInterpret .= " popular";
       }
-      else if ($popularityInt > 70 && $popularityInt <= 85){
+      else if ($popularityInt > 80 && $popularityInt <= 90){
         $popInterpret .= " very popular";
       }
       else {

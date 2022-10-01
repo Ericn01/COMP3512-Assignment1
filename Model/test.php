@@ -9,33 +9,91 @@
 </head>
 <body>
    <?php
-    $test = new HomeEntries();
+   // This method gets called if the user selects a form value with only a single element
+   function getBasicFormValue($postArray){
+     $returnFormVal = "";
+     $radioSelection = $_POST['basic-song-selection'];
+     echo $radioSelection;
+     switch($radioSelection){
+       case 'title':
+        $title = $_POST['title'];
+        if ($title != "" && isset($title)){
+          $returnFormVal = $title;
+        }
+        break;
+      case 'artist':
+        $artist = $_POST['artist-selection'];
+        if ($artist != "" && isset($artist)){
+          $returnFormVal = $artist;
+        }
+        break;
+      case 'genre':
+        $genre = $_POST['genre-selection'];
+        if ($genre != "" && isset($genre)){
+          $returnFormVal = $genre;
+        }
+        break;
+      case 'year':
+        $year = $_POST['between-high-param'];
+        if ($year != "" && isset($year)){
+          $returnFormVal = $year;
+        }
+        break;
 
-    $results = $test->getTopGenres();
-    $artists = $test->getTopArtists();
-    //$oneHit = $test->getOneHitWonders();
-    $mostPopular = $test->getMostPopularSongs();
-    $acoustic= $test->getLongestAcousticSongs();
-    $club = $test->getClubSongs();
-    $running = $test->getRunningSongs();
-    $studying = $test->getStudyingSongs();
+      default:
+        break;
+     }
+     echo $returnFormVal;
+   }
 
-    // Print the query results
-    printResults($results, 'Genre', 'Song Count', 'Genres');
-    printResults($artists, 'Artist Name', 'Song Count', 'Artists');
-    //printresults($oneHit, 'Artist ID', 'popularity', 'One Hit Wonder');
-    printresults($mostPopular, 'Song Name', 'Artist Name', 'Popular Songs');
-    printresults($acoustic, 'Song Title', 'acousticness', 'Acoustic Songs');
-    printresults($club, 'Song Title', 'Clubbing Score', 'Club Songs');
-    printresults($running, 'Song Title', 'Running Score', 'Running Songs');
-    printresults($studying, 'Song Title', 'Studying Score', 'Studying Songs');
-
-    function printResults($results, $r1Name, $r2Name, $testName){
-      echo "<h1> Top $testName Test </h1>";
-      foreach($results as $row){
-        echo "<h4>" . $row["$r1Name"] . ": " . $row["$r2Name"] . "</h4>";
-      }
-    }
+   function getAnalysisFormValue($postArray){
+     $lowValue = 0;
+     $highValue = 100;
+     $radioSelection = $_POST['analysis-song-selection'];
+     switch($radioSelection){
+       case 'year':
+        $title = $_POST['title'];
+        if ($title != "" && isset($title)){
+          $returnFormVal = $title;
+        }
+        break;
+      case 'energy':
+        break;
+      case 'danceability':
+        break;
+      case 'liveness':
+        break;
+      case 'valence';
+        break;
+      case 'acousticness':
+        break;
+      case 'speechiness':
+        break;
+     }
+   }
+   print_r($_POST);
+   echo "<h1>" . getBasicFormValue($_POST) . "</h1>";
+    // $emptyVal = "undefined";
+    // if($_SERVER["REQUEST_METHOD"] == "GET"){
+    //   if ($_POST['title'] != ""){
+    //     $title = $_POST['title'];
+    //   }
+    //   else{
+    //     $title = $emptyVal;
+    //   }
+    //   if (isset($_POST['artist-selection'])){
+    //     $artist = $_POST['artist-selection'];
+    //   }
+    //   else{
+    //     $artist = $emptyVal;
+    //   }
+    //   if (isset($_POST['genre-selection'])){
+    //     $genre = $_POST['genre-selection'];
+    //   }
+    //   else{
+    //     $genre = $emptyVal;
+    //   }
+    // }
    ?>
 </body>
 </html>
