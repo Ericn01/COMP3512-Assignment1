@@ -1,0 +1,35 @@
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  box-shadow: 1px 1px 5px black;
+  border: 2px solid black;
+  gap: 10px;
+}
+
+.song-info{
+  margin: 5px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px black;
+  border: 1.5px solid black;
+}
+.top{
+  text-align: center;
+  text-shadow: 1px 1px 3px black;
+  color: beige;
+  background-color: #003049;
+  grid-area: span 2;
+}
+
+.basic{
+  background-color: #d62828;
+}
+
+.analysis{
+  background-color: #f77f00;
+}
+
+.artist-name{
+  font-style: italic;
+  font-weight: 700;
+  font-size: 25px;
+}
