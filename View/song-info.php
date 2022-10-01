@@ -1,7 +1,7 @@
 <?php
   include '../Controller/singles-controller.class.php';
 
-  $songController = new SingleSongController('1119');
+  $songController = new SingleSongController('1300');
   $songObj = $songController->singleSong();
 
   // Song info title
@@ -12,13 +12,14 @@
   $genre = $songObj->getGenre();
   $duration = $songObj->getDurationMinutes();
   // Song info analysis
-  $bpm = $songObj->getBpm(); $energy = $songObj->getEnergy();
-  $danceability = $songObj->getDanceability();
+  $bpm = $songController->interpretBpm($songObj->getBpm());
+  $energy = $songController->interpretEnergy($songObj->getEnergy());
+  $danceability = $songController->interpretDanceability($songObj->getDanceability());
   $liveness = $songObj->getLiveness();
-  $valence = $songObj->getValence();
+  $valence = $songController->interpretValence($songObj->getValence());
   $acousticness = $songObj->getAcousticness();
-  $speechiness = $songObj->getSpeechiness();
-  $popularity = $songObj->getPopularity();
+  $speechiness = $songController->interpretSpeechiness($songObj->getSpeechiness());
+  $popularity = $songController->interpretPopularity($songObj->getPopularity());
 
   function makeSongInfoTop($title, $year, $artist){
     echo "<div class='song-info top'>";
@@ -35,14 +36,14 @@
   function makeSongInfoAnalysis($bpm, $energy, $danceability, $liveness, $valence, $acousticness, $speechiness, $popularity){
     echo "<div class='song-info analysis'>";
       echo "<h3> Analysis Data </h3>";
-      echo "<p> Popularity: $popularity% </p>";
+      echo "<p> Popularity: $popularity </p>";
       echo "<p> BPM: $bpm </p>";
       echo "<p> Energy: $energy </p>";
-      echo "<p> Danceability: $danceability% </p>";
+      echo "<p> Danceability: $danceability </p>";
       echo "<p> Liveness: $liveness% </p>";
-      echo "<p> Valence: $valence% </p>";
+      echo "<p> Valence: $valence </p>";
       echo "<p> Acousticness: $acousticness% </p>";
-      echo "<p> Speechiness: $speechiness% </p>";
+      echo "<p> Speechiness: $speechiness </p>";
     echo "</div>";
   }
 ?>

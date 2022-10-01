@@ -55,7 +55,8 @@
           <p class='input'>
             <input type='radio' name='basic-song-selection'>
             <label for='basic-song-selection'> Artist </label>
-            <select name='artist-selection' value=""> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
+            <select name='artist-selection'> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
+              <option value="" default> Select an artist </option>
               <?php
               foreach($artists as $a){
                 $artistName = $a['Artist Name'];
@@ -69,6 +70,7 @@
             <input type='radio' name='basic-song-selection'>
             <label for='basic-song-selection'> Genre </label>
             <select name='genre-selection' value=""> <!-- ADD PHP DB RETRIEVAL CODE HERE -->
+              <option value="" default> Select a genre </option>
               <?php
               foreach($genres as $g){
                 $genreName = $g['Genre Name'];
@@ -87,9 +89,9 @@
             <?php makeLessAndGreaterMarkup() ?>
             <input type='radio' name='greater-less-between'>
             <label for='between-input'> Between </label>
-            <input type='text' name='between-low-param' value=1950>
+            <input type='text' name='between-low-param'>
             <br><br>
-            <input type='text' name='between-high-param' value='2022'>
+            <input type='text' name='between-high-param'>
             <br><br> <!-- Change later -->
             <button> Search </button>
           </div>

@@ -10,7 +10,7 @@
     echo "<ul class='foot-list'>";
       echo "<li> $className </li>"
       echo "<li> $authorName </li>"
-      echo "<li> $githubRepo </li>"
+      echo "<li> <a> $githubRepo </a> </li>"
     echo "</ul>";
   ?>
 </footer>
