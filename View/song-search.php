@@ -40,7 +40,7 @@
 <body>
    <header> </header>
    <main class="flex-container">
-     <form class='basic-search-form' action='../Model/test.php' method='POST'>
+     <form class='basic-search-form' action='../View/search-results.php' method='POST'>
         <!-- Basic song search section -->
         <div class="basic-song-search">
           <h2> Basic Song Search </h2>
@@ -97,7 +97,7 @@
           </div>
         </div>
       </form>
-      <form class='advanced-search-form' action='../Model/test.php' method='POST'>
+      <form class='advanced-search-form' action='../View/search-results' method='POST'>
         <!-- Advanced song search section -->
         <h2> Advanced Song Search </h2>
         <div class='advanced-song-search'>

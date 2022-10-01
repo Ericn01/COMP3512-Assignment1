@@ -17,7 +17,7 @@
 
         // Possible queries from the song search page
         protected function getSongByField($paramName, $value){
-          $sql = self::$baseSql .= " WHERE $paramName LIKE %?%";
+          $sql = self::$baseSql .= " WHERE $paramName LIKE ?";
           $statement = $this->databaseConnect()->prepare($sql);
           $statement->execute([$value]);
           $results = $statement->fetchAll();
@@ -40,6 +40,5 @@
           $statement->execute([$lowBound, $highBound]);
           $results = $statement->fetchAll();
         }
-
     }
 ?>

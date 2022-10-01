@@ -1,3 +1,15 @@
+<?php
+  include "../Controller/song-search-controller.class.php";
+  $songSearchObj = new SongSearchController();
+  $entries = $songSearchObj->getBasicFormValue($_GET);
+
+  foreach($entries as $entry){
+    echo $entry['title'];
+    echo $entry['year'];
+    echo $entry['popularity'];
+  }
+
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
