@@ -1,19 +1,19 @@
 <?php
   include "../Controller/song-search-controller.class.php";
   # This is reused everywhere on this page, so might as well make it a function.
-  function makeLessAndGreaterMarkup(){
+  function makeLessAndGreaterMarkup($value){
     $paragraphClass = 'less-greater-inputs';
     // Less input value section
     echo "<p class='$paragraphClass'>";
       echo "<input type='radio' name='greater-less-between'/>";
       echo "<label for='less'> Less </label>";
-      echo "<input type='text' class='less-input'>";
+      echo "<input type='text' class='less-input' name='less-input' min='0' max='100'>";
     echo "</p>";
     // Greater input value section
     echo "<p class='$paragraphClass'>";
-      echo "<input type='radio' name='greater-less-between'/>";
+      echo "<input type='radio' name='greater-less-between'>";
       echo "<label for='greater'> Greater </label>";
-      echo "<input type='text' class='greater-input'>";
+      echo "<input type='text' class='greater-input' name='greater-input' min='0' max='100'>";
     echo "</p>";
   }
   # Responsible for generating the advanced song search boxes within the
@@ -21,12 +21,12 @@
     echo "<div class='sub-input $attributeName'>";
       echo "<input type='radio' name='attribute' value='$attributeName'/>";
       echo "<label for='attribute'>" . ucfirst($attributeName) . "</label>";
-      makeLessAndGreaterMarkup();
+      makeLessAndGreaterMarkup($attributeName);
     echo "</div>";
   }
   $control = new SongSearchController();
-  $genres = $control->genresMarkup();
-  $artists = $control->artistMarkup();
+  $genres = $control->genresMarkup(); // Options for the genres select input
+  $artists = $control->artistMarkup(); // Options for the artist select input
 ?>
 <!DOCTYPE html>
 <html>
@@ -86,18 +86,18 @@
           </p>
 
           <div class='year-sub-inputs'>
-            <?php makeLessAndGreaterMarkup() ?>
+            <?php makeLessAndGreaterMarkup('year') ?>
             <input type='radio' name='greater-less-between'>
             <label for='between-input'> Between </label>
-            <input type='text' name='between-low-param'>
+            <input type='text' name='between-low-param' min='0' max ='100'>
             <br><br>
-            <input type='text' name='between-high-param'>
+            <input type='text' name='between-high-param' min='0' max='100'>
             <br><br> <!-- Change later -->
             <button type="submit" name="submit-basic"> Search </button>
           </div>
         </div>
       </form>
-      <form class='advanced-search-form' action='../View/search-results' method='POST'>
+      <form class='advanced-search-form' action='../View/test.php' method='POST'>
         <!-- Advanced song search section -->
         <h2> Advanced Song Search </h2>
         <div class='advanced-song-search'>

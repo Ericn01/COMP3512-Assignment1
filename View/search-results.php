@@ -23,10 +23,7 @@
         echo "</td>";
       echo "</tr>";
     }
-
   }
-
-
  ?>
 <!DOCTYPE html>
 <html>
@@ -34,14 +31,14 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Search Results </title>
-   <link href="css/search-results-styles.css" rel="stylesheet">
+
    <link href="css/font-selection.css" rel="stylesheet">
+   <link href="css/search-results-styles.css" rel="stylesheet">
 </head>
 <body>
    <header> </header>
    <main class="container">
      <h1> Search Results </h1>
-
      <!-- This page is going to be presenting a large table containing the desired song data -->
      <table>
        <tr>

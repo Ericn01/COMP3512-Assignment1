@@ -11,7 +11,6 @@ include "../Model/song-search.class.php";
             $rows = $this->getartists();
             return $rows;
         }
-
         public function addValue($arr, $paramName, $val){
           if ($val != "" && isset($val)){
             $arr[] = $paramName; // append the parameter name to the array
@@ -22,7 +21,9 @@ include "../Model/song-search.class.php";
           }
           return $arr;
         }
+        public function getFormValues($postArray){
 
+        }
         public function getBasicFormValue($postArray){
           $returnFormValues = [];
           $radioSelection = $_POST['basic-song-selection'];
@@ -52,30 +53,61 @@ include "../Model/song-search.class.php";
           return $entries;
         }
 
+        function getSelectionValue($postArray){
+          $val = 0;
+          $selection = "";
+          if (isset($_POST['less-input'])){
+            $selection = "less";
+            $energy = intval($_POST['less-input']);
+          }
+          else if (isset($_POST['greater-input'])){
+            $selection = "greater";
+            $energy = intval($_POST['greater-input']);
+          }
+          return array($val, $selection);
+        }
         function getAnalysisFormValue($postArray){
-          $lowValue = 0;
-          $highValue = 100;
-          $radioSelection = $_POST['analysis-song-selection'];
+          $returnFormValues = [];
+          $radioSelection = $_POST['attribute'];
+          print_r($_POST);
           switch($radioSelection){
-            case 'year':
-             $title = $_POST['title'];
-             if ($title != "" && isset($title)){
-               $returnFormVal = $title;
-             }
-             break;
            case 'energy':
+             $energySelection = $_POST['greater-less-between'];
+             $energy = $this->getSelectionValue($postArray);
+             $returnFormValues = $this->addValue($returnFormValues, $radioSelection, $energy);
              break;
            case 'danceability':
+              $danceabilitySelection = $_POST['greater-less-between'];
+              $danceability = $this->getSelectionValue($postArray);
+              $returnFormValues = $this->addValue($returnFormValues, $radioSelection, $danceability);
              break;
            case 'liveness':
+              $livenessSelection = $_POST['greater-less-between'];
+              $danceability = $this->getSelectionValue($postArray);
+              $returnFormValues = $this->addValue($returnFormValues, $radioSelection, $liveness);
              break;
            case 'valence';
+              $valenceSelection = $_POST['greater-less-between'];
+              $danceability = $this->getSelectionValue($postArray);
+              $returnFormValues = $this->addValue($returnFormValues, $radioSelection, $valence);
              break;
            case 'acousticness':
+              $acousticnessSelection = $_POST['greater-less-between'];
+              $acousticness = $this->getSelectionValue($postArray);
+              $returnFormValues = $this->addValue($returnFormValues, $radioSelection, $acousticness);
              break;
            case 'speechiness':
+              $speechinessSelection = $_POST['greater-less-between'];
+              $danceability = $this->getSelectionValue($postArray);
+              $returnFormValues = $this->addValue($returnFormValues, $radioSelection, $speechiness);
              break;
+            default:
+              break;
           }
+          $param = $returnFormValues[0];
+          $data = $returnFormValues[1];
+          $entries = $this->getSongByFieldLessOrGreater($param, $data);
+          return $entries;
         }
     }
 ?>
