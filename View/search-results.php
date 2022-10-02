@@ -1,9 +1,9 @@
 <?php
   include "../Controller/song-search-controller.class.php";
   $songSearchObj = new SongSearchController();
-  $entries = $songSearchObj->getBasicFormValue($_GET);
+  $entries = $songSearchObj->getFormValues();
 
-  function getBasicFormValues($entries){
+  function viewFormValues($entries){
     foreach($entries as $entry){
       echo "<tr>";
         echo "<td>";
@@ -23,6 +23,10 @@
         echo "</td>";
       echo "</tr>";
     }
+
+  function getAnalysisFormValue(){
+
+  }
   }
  ?>
 <!DOCTYPE html>
@@ -41,14 +45,18 @@
      <h1> Search Results </h1>
      <!-- This page is going to be presenting a large table containing the desired song data -->
      <table>
-       <tr>
-         <th> Title </th>
-         <th> Artist </th>
-         <th> Year </th>
-         <th> Genre </th>
-         <th> Popularity </th>
-       </tr>
-      <?php getBasicFormValues($entries) ?>
+       <thead>
+         <tr>
+           <th> Title </th>
+           <th> Artist </th>
+           <th> Year </th>
+           <th> Genre </th>
+           <th> Popularity </th>
+         </tr>
+       <thead>
+       <tbody>
+        <?php viewFormValues($entries) ?>
+       </tbody>
      </table>
    </main>
    <footer> </footer>

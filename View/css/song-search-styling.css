@@ -12,8 +12,8 @@
     border: 1px solid black;
     box-shadow: 2px 1px 3px black;
 }
-/* Adding background images to the sub fields*/
 
+/* Adding background images to the sub fields*/
 .danceability{
   background-image: url("../images/danceability.jpg");
 }
@@ -36,6 +36,7 @@
 
 label{
     font-weight: bold;
+    text-shadow: 1px 1px 2px white;
 }
 
 .flex-container{
@@ -53,7 +54,6 @@ label{
   width: 27%;
 }
 .advanced-search-form{
-  color: beige;
   background-color: #8BC6EC;
   background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
   width: 73%;
@@ -68,7 +68,7 @@ label{
 input[type='radio']{
     margin-right: 7.5px;
 }
-input[type='text'], select {
+input[type='text'], select, input[type='number'] {
     margin-left: 1rem;
     float: right;
     width: 120px;

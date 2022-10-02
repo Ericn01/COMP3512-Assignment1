@@ -19,18 +19,16 @@
         // Possible queries from the song search page
         protected function getSongByField($paramName, $value){
           $sql = self::$baseSql;
-          if ($paramName == "year"){
-
-          }
           $sql .= " WHERE $paramName LIKE CONCAT('%', ?, '%') ORDER BY songs.song_id"; // Append the where clause for single parameter
           $statement = $this->databaseConnect()->prepare($sql);
           $statement-> execute([$value]);
           $results = $statement->fetchAll();
           return $results;
         }
+
         protected function getSongByFieldLessOrGreater($param, $data){
-          $val = $data[0];
-          $selection = $data[1];
+          $value = $data[0]; // The value within the first index of the data array (slider value)
+          $selection = $data[1]; // The user's radio button selection (less or greater)
           $sql = self::$baseSql;
           if ($selection == 'less'){
             $sql .= " WHERE $param < ?";
@@ -38,14 +36,17 @@
            else if ($selection == 'greater') {
             $sql .= " WHERE $param > ?";
           }
+          echo "$sql : $value";
           $statement = $this->databaseConnect()->prepare($sql);
-          $statement->execute([$val]);
+          $statement->execute([$value]);
           $results = $statement->fetchAll();
+          return $results;
         }
 
         protected function getSongBetweenValues($paramName, $lowBound, $highBound){
-          $sql = $this->appendInnerJoins(self::$baseSql);
-          $sql .= "WHERE $paramName BETWEEN ? AND ?";
+          $sql = self::$baseSql;
+          $sql .= " WHERE $paramName BETWEEN ? AND ?";
+          echo "$sql : $lowBound : $highBound";
           $statement = $this->databaseConnect()->prepare($sql);
           $statement->execute([$lowBound, $highBound]);
           $results = $statement->fetchAll();

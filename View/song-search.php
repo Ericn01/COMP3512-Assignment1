@@ -5,15 +5,20 @@
     $paragraphClass = 'less-greater-inputs';
     // Less input value section
     echo "<p class='$paragraphClass'>";
-      echo "<input type='radio' name='greater-less-between'/>";
+      echo "<input type='radio' name='greater-less-between' value='less'>";
       echo "<label for='less'> Less </label>";
-      echo "<input type='text' class='less-input' name='less-input' min='0' max='100'>";
+      echo "<p>";
+        echo "0 <input type='range' min='0' max='100' name='less-input'> 100";
+      echo "</p>";
     echo "</p>";
+
     // Greater input value section
     echo "<p class='$paragraphClass'>";
-      echo "<input type='radio' name='greater-less-between'>";
+      echo "<input type='radio' name='greater-less-between' value='greater'>";
       echo "<label for='greater'> Greater </label>";
-      echo "<input type='text' class='greater-input' name='greater-input' min='0' max='100'>";
+      echo "<p>";
+        echo "0 <input type='range' min='0' max='100' name='greater-input'> 100";
+      echo "</p>";
     echo "</p>";
   }
   # Responsible for generating the advanced song search boxes within the
@@ -84,20 +89,29 @@
             <input type='radio' name='basic-song-selection' value='year'>
             <label for='basic-song-selection'> Year </label>
           </p>
-
           <div class='year-sub-inputs'>
-            <?php makeLessAndGreaterMarkup('year') ?>
-            <input type='radio' name='greater-less-between'>
-            <label for='between-input'> Between </label>
-            <input type='text' name='between-low-param' min='0' max ='100'>
+            <!-- Less input value section -->
+            <input type='radio' name='greater-less-between' value='less'>
+            <label for='less'> Less </label>
+            <input type='number' name='year-less-input' min='1950' max='2020'>
             <br><br>
-            <input type='text' name='between-high-param' min='0' max='100'>
+            <!-- Greater input value section -->
+            <input type='radio' name='greater-less-between' value='greater'>
+            <label for='greater'> Greater </label>
+            <input type='number' name='year-greater-input' min='1950' max='2020'>
+            <br><br>
+            <!-- Between input value section -->
+            <input type='radio' name='greater-less-between' value='year'>
+            <label for='between-input'> Between </label>
+            <input type='number' name='between-low-param' min='1950' max ='2020'>
+            <br><br>
+            <input type='number' name='between-high-param' min='1950' max='2020'>
             <br><br> <!-- Change later -->
-            <button type="submit" name="submit-basic"> Search </button>
+            <button type="submit" name="submit-basic" value="basic"> Search </button>
           </div>
         </div>
       </form>
-      <form class='advanced-search-form' action='../View/test.php' method='POST'>
+      <form class='advanced-search-form' action='../View/search-results.php' method='POST'>
         <!-- Advanced song search section -->
         <h2> Advanced Song Search </h2>
         <div class='advanced-song-search'>
@@ -109,7 +123,7 @@
               }
             ?>
         </div>
-        <button type="submit" name="submit-advanced"> Search </button>
+        <button type="submit" name="submit-advanced" value="advanced"> Search </button>
       </form>
    </main>
    <footer> </footer>

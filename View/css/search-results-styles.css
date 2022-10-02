@@ -1,12 +1,40 @@
-body{background: linear-gradient(#f612a3, #524ab2);}
+/* Note: table CSS design inspired by https://www.youtube.com/watch?v=Oy9K7iz3aa4&ab_channel=AngelaDelise */
+body{
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
 th, td{
   text-align: left;
-  font-size: 16px;
   padding: 7.5px;
 }
+thead{
+  box-shadow: 0 3px 12px gray;
+}
+th{
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  font-size: 0.9rem;
+}
+td{
+  padding: 1rem;
+}
+tr:nth-child(even){
+  background-color: rgba(0,0,0, 0.075);
+}
 table{
+  table-layout: fixed;
+  background-color: snow;
+  border-collapse: collapse;
   width: 100%;
   margin: 10px;
+  box-shadow: 1px 6px 10px black;
+  text-align: left;
+  overflow: hidden;
 }
 h1{
   text-align: center;
