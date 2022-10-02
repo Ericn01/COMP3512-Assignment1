@@ -26,7 +26,6 @@ include "../Model/song-search.class.php";
         public function getBasicFormValue($postArray){
           $returnFormValues = [];
           $radioSelection = $_POST['basic-song-selection'];
-          echo $radioSelection;
           switch($radioSelection){
             case 'title':
              $title = $_POST['title'];
@@ -34,11 +33,11 @@ include "../Model/song-search.class.php";
              break;
            case 'artist':
              $artist = $_POST['artist-selection'];
-             $returnFormValues = $this->addValue($returnFormValues, 'artist', $artist);
+             $returnFormValues = $this->addValue($returnFormValues, 'artist_name', $artist);
              break;
            case 'genre':
              $genre = $_POST['genre-selection'];
-             $returnFormValues = $this->addValue($returnFormValues, 'genre', $artist);
+             $returnFormValues = $this->addValue($returnFormValues, 'genre_name', $genre);
              break;
            case 'year':
              $year = $_POST['between-high-param'];

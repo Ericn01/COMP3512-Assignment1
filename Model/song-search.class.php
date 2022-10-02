@@ -1,7 +1,7 @@
 <?php
     include 'database-connection.class.php';
     class SongSearch extends DatabaseConnection{
-        private static $baseSql = "SELECT title, artist, genre, popularity FROM songs";
+        private static $baseSql = "SELECT title, artist_name, year, genre_name, popularity FROM songs";
         protected function getgenres(){
             $sql = "SELECT genre_name AS `Genre Name` FROM genres ORDER BY genre_name";
             $result = $this->databaseConnect()->query($sql);
@@ -15,12 +15,17 @@
             return $rows;
         }
 
+        protected function appendInnerJoins($oldSql){
+          return $oldSql .= " INNER JOIN artists ON artists.artist_id = songs.artist_id INNER JOIN genres ON genres.genre_id = songs.genre_id ";
+        }
         // Possible queries from the song search page
         protected function getSongByField($paramName, $value){
-          $sql = self::$baseSql .= " WHERE $paramName LIKE ?";
+          $sql = $this->appendInnerJoins(self::$baseSql);
+          $sql .= "WHERE $paramName LIKE CONCAT('%', ?, '%') ORDER BY songs.song_id";
           $statement = $this->databaseConnect()->prepare($sql);
-          $statement->execute([$value]);
+          $statement-> execute([$value]);
           $results = $statement->fetchAll();
+          return $results;
         }
         protected function getSongByYearLess($year){
           $sql = self::$baseSql .= ' WHERE year < ?';

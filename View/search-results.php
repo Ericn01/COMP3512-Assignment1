@@ -3,11 +3,29 @@
   $songSearchObj = new SongSearchController();
   $entries = $songSearchObj->getBasicFormValue($_GET);
 
-  foreach($entries as $entry){
-    echo $entry['title'];
-    echo $entry['year'];
-    echo $entry['popularity'];
+  function getBasicFormValues($entries){
+    foreach($entries as $entry){
+      echo "<tr>";
+        echo "<td>";
+          echo $entry['title'];
+        echo "</td>";
+        echo "<td>";
+          echo $entry['artist_name'];
+        echo "</td>";
+        echo "<td>";
+          echo $entry['year'];
+        echo "</td>";
+        echo "<td>";
+          echo $entry['genre_name'];
+        echo "</td>";
+        echo "<td>";
+          echo $entry['popularity'];
+        echo "</td>";
+      echo "</tr>";
+    }
+
   }
+
 
  ?>
 <!DOCTYPE html>
@@ -17,6 +35,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Search Results </title>
    <link href="css/search-results-styles.css" rel="stylesheet">
+   <link href="css/font-selection.css" rel="stylesheet">
 </head>
 <body>
    <header> </header>
@@ -32,6 +51,7 @@
          <th> Genre </th>
          <th> Popularity </th>
        </tr>
+      <?php getBasicFormValues($entries) ?>
      </table>
    </main>
    <footer> </footer>
