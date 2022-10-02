@@ -1,7 +1,7 @@
 <?php
     include 'database-connection.class.php';
     class SongSearch extends DatabaseConnection{
-        private static $baseSql = "SELECT title, artist_name, year, genre_name, popularity FROM songs INNER JOIN artists
+        private static $baseSql = "SELECT song_id, title, artist_name, year, genre_name, popularity FROM songs INNER JOIN artists
                                    ON artists.artist_id = songs.artist_id INNER JOIN genres ON genres.genre_id = songs.genre_id";
         protected function getgenres(){
             $sql = "SELECT genre_name AS `Genre Name` FROM genres ORDER BY genre_name";

@@ -5,9 +5,12 @@
 
   function viewFormValues($entries){
     foreach($entries as $entry){
+
       echo "<tr>";
         echo "<td>";
-          echo $entry['title'];
+          echo "<a href='song-info.php?sond_id=" . $entry['song_id'] . "'/>";
+            echo $entry['title'];
+          echo "</a>";
         echo "</td>";
         echo "<td>";
           echo $entry['artist_name'];
@@ -22,6 +25,7 @@
           echo $entry['popularity'];
         echo "</td>";
       echo "</tr>";
+
     }
 
   function getAnalysisFormValue(){

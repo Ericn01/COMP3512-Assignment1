@@ -30,12 +30,28 @@ table{
   table-layout: fixed;
   background-color: snow;
   border-collapse: collapse;
-  width: 100%;
-  margin: 10px;
+  width: 95%;
+  margin: 10px auto;
   box-shadow: 1px 6px 10px black;
   text-align: left;
   overflow: hidden;
 }
 h1{
   text-align: center;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: underline;
+  color: blue;
+}
+
+tr:hover{
+  cursor: pointer;
+  transition: 0.25s; /* SMOOOOOOTH */
+  transform: scale(1.01);
+  background-color: rgba(0, 0, 255, 0.1);
 }

@@ -1,7 +1,13 @@
 <?php
   include '../Controller/singles-controller.class.php';
 
-  $songController = new SingleSongController('1150');
+  function getSongIdValue(){
+    $querystring = $_SERVER['QUERY_STRING']; // retrieves the song_id query string from the href
+    $songIdNumber = trim($querystring, "song_id=");
+    return $songIdNumber;
+  }
+
+  $songController = new SingleSongController(getSongIdValue());
   $songObj = $songController->singleSong();
 
   // Song info title
