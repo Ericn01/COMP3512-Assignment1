@@ -41,7 +41,7 @@
       }
       return $popInterpret;
     }
-
+    // Interprets how danceable the song is.
     public function interpretDanceability($danceability){
       $danceability = intval($danceability);
       $danceabilityInterpret= "This song  ";
@@ -62,38 +62,38 @@
       }
       return $danceabilityInterpret;
     }
-
+    // Interprets the tempo of a given song [Slow tempo -> Very fast tempo].
     public function interpretBpm($bpm){
       $bpm = intval($bpm);
       $bpmInterpret = "Runs at $bpm beats per minute (";
       if ($bpm <= 80){
-        $bpmInterpret .= " slow tempo)";
+        $bpmInterpret .= "slow tempo)";
       }
       else if ($bpm > 80 && $bpm <= 120){
-        $bpmInterpret .= " moderate tempo)";
+        $bpmInterpret .= "moderate tempo)";
       }
       else if ($bpm > 120 && $bpm <= 135){
-        $bpmInterpret .= " moderate-fast tempo)";
+        $bpmInterpret .= "moderate-fast tempo)";
       }
       else if ($bpm > 135 && $bpm <= 165){
-        $bpmInterpret .= " fast & sweet tempo)";
+        $bpmInterpret .= "fast & sweet tempo)";
       }
       else if ($bpm > 165 && $bpm <= 180){
-          $bpmInterpret .= " fast & lively tempo)";
+          $bpmInterpret .= "fast & lively tempo)";
       }
       else if ($bpm > 180 && $bpm < 200){
-          $bpmInterpret .= " very fast & energetic tempo)";
+          $bpmInterpret .= "very fast & energetic tempo)";
       }
       else{
-          $bpmInterpret .= " incredibly fast tempo)";
+          $bpmInterpret .= "incredibly fast tempo)";
       }
       return $bpmInterpret;
     }
-
+  
+    // Gives meaning to the speechiness value from the given song.
     public function interpretSpeechiness($speechiness){
       $speechiness = intval($speechiness);
       $speechInterpret = "The artist sings ";
-
       if ($speechiness < 30){
         $speechInterpret .= ' a little bit';
       }
@@ -109,35 +109,31 @@
       $speechInterpret .= ' in this song.';
       return $speechInterpret;
     }
-
-    public function interpretValence($valence){
-      $valence = intval($valence);
-      $valenceInterpret = "The song has a ";
-      if ($valence  < 15){
-        $valenceInterpret .= ' depressing';
+    // Interprets the arbitrary liveness value from a given song
+    public function interpretLiveness($liveness){
+      $liveness = intval($liveness);
+      $livenessInterpret = "This song has ";
+      if ($liveness  < 15){
+        $livenessInterpret .= ' almost no liveness';
       }
-      else if ($valence > 15 && $valence  <= 30){
-        $valenceInterpret .= ' sad';
+      else if ($liveness > 15 && $liveness  <= 30){
+        $livenessInterpret .= ' low liveness';
       }
-      else if ($valence  > 30 && $valence  <= 50){
-        $valenceInterpret .= ' somewhat negative';
+      else if ($liveness  > 30 && $liveness  <= 50){
+        $livenessInterpret .= ' moderate liveness';
       }
-      else if ($valence > 50 && $valence <= 70){
-        $valenceInterpret .= ' somewhat positive';
+      else if ($liveness > 50 && $liveness <= 70){
+        $livenessInterpret .= ' fairly high liveness';
       }
-      else if ($valence > 70 && $valence <= 80){
-        $valenceInterpret .= ' cheerful';
+      else if ($liveness > 70 && $liveness <= 80){
+        $livenessInterpret .= ' high liveness';
       }
-      else if ($valence > 80 && $valence <= 95){
-        $valenceInterpret .= ' happy';
+      else{
+        $livenessInterpret .= ' very high liveness';
       }
-      else {
-        $valenceInterpret .= ' incredibly joyful';
-      }
-      $valenceInterpret .= ' mood.';
-      return $valenceInterpret;
+      return $livenessInterpret;
     }
-
+    // Interprets the energy levels of the given song (not energetic to very energetic).
     public function interpretEnergy($energy){
       $energy = intval($energy);
       $energyInterpret = "";
@@ -165,6 +161,65 @@
       $energyInterpret .= " ($energy%)";
       return $energyInterpret;
     }
+  
+
+  // Interprets the valence (positivity of the song)
+  public function interpretValence($valence){
+    $valence = intval($valence);
+    $valenceInterpret = "The song has a ";
+    if ($valence  < 15){
+      $valenceInterpret .= ' depressing';
+    }
+    else if ($valence > 15 && $valence  <= 30){
+      $valenceInterpret .= ' sad';
+    }
+    else if ($valence  > 30 && $valence  <= 50){
+      $valenceInterpret .= ' somewhat negative';
+    }
+    else if ($valence > 50 && $valence <= 70){
+      $valenceInterpret .= ' somewhat positive';
+    }
+    else if ($valence > 70 && $valence <= 80){
+      $valenceInterpret .= ' cheerful';
+    }
+    else if ($valence > 80 && $valence <= 95){
+      $valenceInterpret .= ' happy';
+    }
+    else {
+      $valenceInterpret .= ' incredibly joyful';
+    }
+    $valenceInterpret .= ' mood.';
+    return $valenceInterpret;
   }
+
+  public function interpretAcousticness($acousticness){
+  $acousticness = intval($acousticness);
+  $acousticnessInterpret = "The song ";
+  if ($acousticness  < 15){
+    $acousticnessInterpret .= ' is not acoustic';
+  }
+  else if ($acousticness > 15 && $acousticness  <= 30){
+    $acousticnessInterpret .= ' has low acousticness';
+  }
+  else if ($acousticness  > 30 && $acousticness  <= 50){
+    $acousticnessInterpret .= ' has moderate acousticness';
+  }
+  else if ($acousticness > 50 && $acousticness <= 70){
+    $acousticnessInterpret .= ' has decent acousticness';
+  }
+  else if ($acousticness > 70 && $acousticness <= 80){
+    $acousticnessInterpret .= ' has great acousticness';
+  }
+  else{
+    $acousticnessInterpret .= ' has fantastic acousticness';
+  }
+  return $acousticnessInterpret;
+}
+
+// A lot of code repitition for sure, but it's the only that I could think of doing this.}
+
+}
+
+
 
 ?>

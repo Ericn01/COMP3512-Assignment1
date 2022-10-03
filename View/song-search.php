@@ -93,19 +93,19 @@
             <!-- Less input value section -->
             <input type='radio' name='greater-less-between' value='less'>
             <label for='less'> Less </label>
-            <input type='number' name='year-less-input' min='1950' max='2020'>
+            <input type='number' name='year-less-input' min='2015' max='2020'>
             <br><br>
             <!-- Greater input value section -->
             <input type='radio' name='greater-less-between' value='greater'>
             <label for='greater'> Greater </label>
-            <input type='number' name='year-greater-input' min='1950' max='2020'>
+            <input type='number' name='year-greater-input' min='2015' max='2020'>
             <br><br>
             <!-- Between input value section -->
             <input type='radio' name='greater-less-between' value='year'>
             <label for='between-input'> Between </label>
-            <input type='number' name='between-low-param' min='1950' max ='2020'>
+            <input type='number' name='between-low-param' min='2015' max ='2020'>
             <br><br>
-            <input type='number' name='between-high-param' min='1950' max='2020'>
+            <input type='number' name='between-high-param' min='2015' max='2020'>
             <br><br> <!-- Change later -->
             <button type="submit" name="submit-basic" value="basic"> Search </button>
           </div>

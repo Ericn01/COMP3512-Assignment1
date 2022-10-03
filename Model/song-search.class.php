@@ -25,7 +25,7 @@
           $results = $statement->fetchAll();
           return $results;
         }
-
+        // Retrieves and return songs based on a greater or less than value
         protected function getSongByFieldLessOrGreater($param, $data){
           $value = $data[0]; // The value within the first index of the data array (slider value)
           $selection = $data[1]; // The user's radio button selection (less or greater)
@@ -42,14 +42,14 @@
           $results = $statement->fetchAll();
           return $results;
         }
-
+        // Retrieves song entries between two year values.
         protected function getSongBetweenValues($paramName, $lowBound, $highBound){
           $sql = self::$baseSql;
           $sql .= " WHERE $paramName BETWEEN ? AND ?";
-          echo "$sql : $lowBound : $highBound";
           $statement = $this->databaseConnect()->prepare($sql);
           $statement->execute([$lowBound, $highBound]);
           $results = $statement->fetchAll();
+          return $results;
         }
     }
 ?>
