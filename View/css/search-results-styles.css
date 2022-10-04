@@ -1,10 +1,9 @@
 /* Note: table CSS design inspired by https://www.youtube.com/watch?v=Oy9K7iz3aa4&ab_channel=AngelaDelise */
-body{
-  height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
+:root{
+  --dominant-color: #7209b7;
+  --contrasting-color: #32BEAF;
+  --complimentary-color: #008080;
+  --highlight-color: #FFA2FF;
 }
 th, td{
   text-align: left;
@@ -14,7 +13,8 @@ thead{
   box-shadow: 0 3px 12px gray;
 }
 th{
-  padding: 0.8rem 1rem;
+  background-color: var(--highlight-color);
+  padding: 0.8rem 1.2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bolder;
@@ -23,23 +23,22 @@ th{
 td{
   padding: 1rem;
 }
+tr{
+  background-color: var(--contrasting-color)
+}
 tr:nth-child(even){
-  background-color: rgba(0,0,0, 0.075);
+  background-color: var(--complimentary-color);
 }
 table{
   table-layout: fixed;
   background-color: snow;
   border-collapse: collapse;
-  width: 95%;
+  width: 80% auto;
   margin: 10px auto;
   box-shadow: 1px 6px 10px black;
   text-align: left;
   overflow: hidden;
 }
-h1{
-  text-align: center;
-}
-
 a{
   text-decoration: none;
   color: black;
@@ -53,5 +52,4 @@ tr:hover{
   cursor: pointer;
   transition: 0.25s; /* SMOOOOOOTH */
   transform: scale(1.01);
-  background-color: rgba(0, 0, 255, 0.1);
 }

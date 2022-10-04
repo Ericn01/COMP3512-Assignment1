@@ -1,4 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:wght@300&display=swap');
+// Color palette for the website
+:root{
+  --dominant-color: #7209b7;
+  --contrasting-color: #32BEAF;
+  --background-color: #211925;
+  --highlight-color: #FFA2FF;
+}
 body{
   font-family: 'Playfair Display', serif;
+  background-color: var(--dominant-color);
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+h1{
+  color: var(--highlight-color);
+  text-align: center;
+  text-shadow: 3px 2px 1.5px black;
+  font-size: 50px;
 }

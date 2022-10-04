@@ -26,43 +26,40 @@
   $acousticness = $songController->interpretAcousticness($songObj->getAcousticness());
   $speechiness = $songController->interpretSpeechiness($songObj->getSpeechiness());
   $popularity = $songController->interpretPopularity($songObj->getPopularity());
-  
-  function makeSongInfoTop($title, $year, $artist){
+
+  function makeSongInfoTop($title, $year, $artist, $genre, $duration){
     echo "<div class='song-info top'>";
       echo "<h1> $title [$year] </h1>";
       echo "<h3 class='artist-name'> Produced by $artist </h3>";
-    echo "</div>";
-  }
-  function makeSongInfoBasic($genre, $duration){
-    echo "<div class='song-info basic'>";
-      echo "<h3> Song genre: $genre </h3>";
-      echo "<h3> Duration: $duration minutes </h3>";
+      echo "<p> Genre: $genre </p>";
+      echo "<p> Duration: $duration minutes </p>";
     echo "</div>";
   }
 
   function makeSongAttributeBox($paramName, $paramInterpreted, $value, $lowEnd, $highEnd){
-    echo "<div class='analysis-trait'>";
+    echo "<div class='analysis-trait $paramName'>";
       echo "<h3> $paramName </h3>";
       echo "<p> $paramInterpreted </p>";
       if ($paramName != 'BPM'){
-        echo $lowEnd. "<progress class='progress-bar' value=" . $value . " min='0' max='100'> </progress>" . $highEnd;
+        echo "<p>" . $lowEnd. "<progress class='progress-bar' value=" . $value . " min='0' max='100'> </progress>" . $highEnd . "</p>";
       }
       else{
-        echo $lowEnd . "<progress class='progress-bar' value=" . $value . " min='50' max='210'></progress> " . $highEnd;
+        echo  "<p>" . $lowEnd . "<progress class='progress-bar' value=" . $value . " min='50' max='210'></progress> " . $highEnd . "</p>";
       }
     echo "</div>";
   }
 
   function makeSongInfoAnalysis($bpm, $energy, $danceability, $liveness, $valence, $acousticness, $speechiness, $popularity, $songObj){
     echo "<div class='song-info analysis'>";
+      echo "<h2> Song Analysis </h2>";
       makeSongAttributeBox('Popularity', $popularity, $songObj->getPopularity(), 'Not Popular', 'Very Popular');
-      makeSongAttributeBox('BPM', $bpm, $songObj->getBpm(), '50 BPM', '210 BPM');
+      makeSongAttributeBox('BPM', $bpm, $songObj->getBpm(), 'Slow tempo', 'Rapid tempo');
       makeSongAttributeBox('Energy', $energy, $songObj->getEnergy(), 'Low Energy', 'High Energy');
       makeSongAttributeBox('Valence', $valence, $songObj->getValence(), 'Sad Mood', 'Happy Mood');
       makeSongAttributeBox('Acousticness', $acousticness, $songObj->getAcousticness(), 'Not Acoustic', 'Very Acoustic');
       makeSongAttributeBox('Speechiness', $speechiness, $songObj->getSpeechiness(), 'Less lyrics', 'More lyrics');
       makeSongAttributeBox('Liveness', $liveness, $songObj->getLiveness(), 'No audience', 'High audience');
-      makeSongAttributeBox('Danceability', $danceability, $songObj->getDanceability(), "Don't DANCE", 'DANCE!');
+      makeSongAttributeBox('Danceability', $danceability, $songObj->getDanceability(), "Low danceability", 'High danceability');
     echo "</div>";
   }
 ?>
@@ -79,8 +76,7 @@
    <header> </header>
    <main class="grid-container">
      <?php
-      makeSongInfoTop($title, $year, $artist);
-      makeSongInfoBasic($genre, $duration);
+      makeSongInfoTop($title, $year, $artist, $genre, $duration);
       makeSongInfoAnalysis($bpm, $energy, $danceability, $liveness, $valence, $acousticness, $speechiness, $popularity, $songObj);
      ?>
    </main>
