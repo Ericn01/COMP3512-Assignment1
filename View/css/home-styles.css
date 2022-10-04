@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 /* CSS for the background images of the links */
-.top-genres{
+/* .top-genres{
   background-image: url("../images/genres.jpg");
 }
 .top-artists{
@@ -57,7 +57,7 @@
 }
 .running-songs{
   background-image: url("../images/running.jpg");
-}
+} */
 
 
 /* List styling */

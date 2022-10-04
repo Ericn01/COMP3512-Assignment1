@@ -42,8 +42,7 @@ include "../Model/song-search.class.php";
           }
           return $entries;
         }
-
-
+        
         // Basic form values return. Called if the user searches using either title, artist or genre.
         private function getBasicFormValue(){
           $returnFormValues = [];
