@@ -1,6 +1,6 @@
 <?php
   class DatabaseConnection{
-    private $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL");)
+    private $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     private $dbHost = $cleardb_url["host"];
     private $dbUser = $cleardb_url["user"];
     private $dbPass = $cleardb_url["pass"];
