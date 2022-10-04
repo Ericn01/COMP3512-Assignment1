@@ -1,11 +1,21 @@
 <?php
   class DatabaseConnection{
-    private $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-    private $dbHost = $cleardb_url["host"];
-    private $dbUser = $cleardb_url["user"];
-    private $dbPass = $cleardb_url["pass"];
-    private $dbName = $cleardb_url["path", 1];
+    # Localhost connection Info
+    
+    // private $dbHost = 'localhost';
+    // private $dbUser = 'root';
+    // private $dbPass = '';
+    // private $dbName = "music";
 
+    // Connecting to the heroku website
+    private $jawsdb_url = parse_url(getenv("JAWSDB_URL"));
+    private $dbHost = $jawsdb_url["host"];
+    private $dbUser = $jawsdb_url["user"];
+    private $dbPass = $jawsdb_url["pass"];
+    private $dbName = "bzl6nuctkx4sa2vr";
+
+    $active_group = 'default';
+    $query_builder = TRUE;
     # Establishing a connection with the database
     # We only want classes that extend this class to be able to access the DB, hence protected.
     protected function databaseConnect(){
