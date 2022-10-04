@@ -33,7 +33,6 @@ table{
   table-layout: fixed;
   background-color: snow;
   border-collapse: collapse;
-  width: 80% auto;
   margin: 10px auto;
   box-shadow: 1px 6px 10px black;
   text-align: left;

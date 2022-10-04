@@ -6,16 +6,16 @@
 }
 
 .grid-container{
-  width: 80% auto;
   color: black;
-  background: var(--contrasting-color);
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(4, minmax(0, 1fr)); /* Make 4 columns of equal size*/
   grid-template-rows:repeat(2, minmax(0, 1fr));
   gap: 7.5px 12.5px;
   margin: 25px;
 }
 .link-box{
+  text-align: center;
   margin: 10px;
   background-color: var(--complimentary-color);
   border: 1px solid black;
@@ -28,11 +28,41 @@
 }
 
 .link-box:hover{
-  transition: 0.35s ease-in;
-  transform: scale(1.035);
-  font-weight: 700;
+  transition: 0.30s ease-in;
+  transform: scale(1.005);
   cursor: pointer;
 }
+/* Yanking the code out from the search results page to show these results*/
+th{
+  font-weight: bold;
+  background-color: var(--highlight-color);
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 18px;
+  padding: 8px;
+}
+td{
+  font-size: 18px;
+  font-weight: normal;
+  padding: 1rem;
+}
+tr{
+  background-color: var(--contrasting-color)
+}
+tr:nth-child(even){
+  background-color: var(--complimentary-color);
+}
+table{
+  width: 92%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 15px auto;
+  margin-top: 20px;
+  box-shadow: 1px 6px 10px black;
+  text-align: left;
+  overflow: hidden;
+}
+
 /* CSS for the background images of the links */
 /* .top-genres{
   background-image: url("../images/genres.jpg");
@@ -63,9 +93,8 @@
 /* List styling */
 
 li{
-  font-size: 14px;
+  font-size: 20px;
   padding-bottom: 5px;
-  text-align: left;
   font-weight: 500;
 }
 

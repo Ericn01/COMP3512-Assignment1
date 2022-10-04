@@ -16,6 +16,12 @@
             return $rows;
         }
 
+        # =============================== HOME PAGE QUERIES ================================ #
+        protected function getTopGenres(){
+
+        }
+
+        # ========================= SEARCH PAGE CONSTRUCTED QUERIES ======================= #
         // Possible queries from the song search page
         protected function getSongByField($paramName, $value){
           $sql = self::$baseSql;
@@ -49,6 +55,10 @@
           $statement = $this->databaseConnect()->prepare($sql);
           $statement->execute([$lowBound, $highBound]);
           $results = $statement->fetchAll();
+          return $results;
+        }
+        protected function getAllSongs(){
+          $results = $this->databaseConnect()->query(self::$baseSql);
           return $results;
         }
     }

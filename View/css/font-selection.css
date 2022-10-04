@@ -6,6 +6,11 @@
   --background-color: #211925;
   --highlight-color: #FFA2FF;
 }
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body{
   font-family: 'Playfair Display', serif;
   background-color: var(--dominant-color);

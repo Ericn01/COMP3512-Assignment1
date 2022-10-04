@@ -73,13 +73,13 @@
    <link href="css/font-selection.css" rel="stylesheet">
 </head>
 <body>
-   <header> </header>
+    <?php include 'header.php'; ?>
    <main class="grid-container">
      <?php
       makeSongInfoTop($title, $year, $artist, $genre, $duration);
       makeSongInfoAnalysis($bpm, $energy, $danceability, $liveness, $valence, $acousticness, $speechiness, $popularity, $songObj);
      ?>
    </main>
-   <footer> </footer>
+   <?php include 'footer.php'; ?>
 </body>
 </html>

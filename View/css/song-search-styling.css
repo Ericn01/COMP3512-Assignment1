@@ -1,3 +1,9 @@
+:root{
+  --dominant-color: #7209b7;
+  --contrasting-color: #32BEAF;
+  --highlight-color: #FFA2FF;
+  --complimentary-color: #008080;
+}
 .advanced-song-search{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -7,6 +13,7 @@
 }
 
 .sub-input{
+    background-color: var(--contrasting-color);
     color: black;
     padding: 30px;
     border: 1px solid black;
@@ -14,7 +21,7 @@
 }
 
 /* Adding background images to the sub fields*/
-.danceability{
+/* .danceability{
   background-image: url("../images/danceability.jpg");
 }
 .energy{
@@ -31,17 +38,20 @@
 }
 .speechiness{
   background-image: url("../images/speechiness.jpg");
-}
-
+} */
 
 label{
     font-weight: bold;
-    text-shadow: 1px 1px 2px white;
 }
-
+form{
+    background-color: var(--complimentary-color);
+    box-shadow: 1px 1px 10px black;
+    padding: 20px;
+    margin: 10px 10px 15px 5px;
+}
 .flex-container{
     display: flex;
-    width: 100%;
+    width: 80% auto;
 }
 
 .less-input .greater-input{
@@ -49,18 +59,13 @@ label{
 }
 
 .basic-search-form{
-  background-color: #FF9A8B;
-  background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
   width: 27%;
 }
 .advanced-search-form{
-  background-color: #8BC6EC;
-  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
   width: 73%;
 }
 .basic-song-search .advanced-song-search{
     border: 1px solid black;
-    background-color: gray;
 }
 .year-sub-inputs{
     margin-left: 20px;
@@ -70,8 +75,9 @@ input[type='radio']{
 }
 input[type='text'], select, input[type='number'] {
     margin-left: 1rem;
+    margin-bottom: 5px;
     float: right;
-    width: 120px;
+    width: 115px;
     padding: 3px;
     border: none;
     background: none;
@@ -99,13 +105,6 @@ button:hover{
 }
 .paragraphClass{
     margin-left: 12px;
-}
-
-form{
-    box-shadow: 1px 1px 10px black;
-    padding: 20px;
-    margin: 10px 10px 15px 5px;
-    background-color: rgba(78, 68, 68, 0.13);
 }
 
 h2{

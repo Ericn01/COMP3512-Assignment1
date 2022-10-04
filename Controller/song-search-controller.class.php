@@ -37,12 +37,11 @@ include "../Model/song-search.class.php";
             $entries = $this->getAnalysisFormValue();
           }
           else{
-            echo "Something went wrong while processing your query...";
-            $entries = null;
+            $entries = $this->getAllSongs();
           }
           return $entries;
         }
-        
+
         // Basic form values return. Called if the user searches using either title, artist or genre.
         private function getBasicFormValue(){
           $returnFormValues = [];

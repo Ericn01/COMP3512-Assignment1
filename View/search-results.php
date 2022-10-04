@@ -5,7 +5,6 @@
 
   function viewFormValues($entries){
     foreach($entries as $entry){
-
       echo "<tr>";
         echo "<td>";
           echo "<a href='song-info.php?sond_id=" . $entry['song_id'] . "'/>";
@@ -27,10 +26,6 @@
       echo "</tr>";
 
     }
-
-  function getAnalysisFormValue(){
-
-  }
   }
  ?>
 <!DOCTYPE html>
@@ -44,7 +39,7 @@
    <link href="css/search-results-styles.css" rel="stylesheet">
 </head>
 <body>
-   <header> </header>
+   <?php include 'header.php'; ?>
    <main class="container">
      <h1> Search Results </h1>
      <!-- This page is going to be presenting a large table containing the desired song data -->
@@ -63,6 +58,6 @@
        </tbody>
      </table>
    </main>
-   <footer> </footer>
+   <?php include 'footer.php'; ?>
 </body>
 </html>

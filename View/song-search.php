@@ -8,7 +8,7 @@
       echo "<input type='radio' name='greater-less-between' value='less'>";
       echo "<label for='less'> Less </label>";
       echo "<p>";
-        echo "0 <input type='range' min='0' max='100' name='less-input'> 100";
+        echo "<input type='number' min='0' max='100' name='less-input'>";
       echo "</p>";
     echo "</p>";
 
@@ -17,7 +17,7 @@
       echo "<input type='radio' name='greater-less-between' value='greater'>";
       echo "<label for='greater'> Greater </label>";
       echo "<p>";
-        echo "0 <input type='range' min='0' max='100' name='greater-input'> 100";
+        echo "<input type='number' min='0' max='100' name='greater-input'>";
       echo "</p>";
     echo "</p>";
   }
@@ -43,7 +43,8 @@
    <link href="css/font-selection.css" rel="stylesheet">
 </head>
 <body>
-   <header> </header>
+   <?php include 'header.php'; ?>
+   <h1> Song Search </h1>
    <main class="flex-container">
      <form class='basic-search-form' action='../View/search-results.php' method='POST'>
         <!-- Basic song search section -->
@@ -126,6 +127,6 @@
         <button type="submit" name="submit-advanced" value="advanced"> Search </button>
       </form>
    </main>
-   <footer> </footer>
+   <?php include 'footer.php'; ?>
 </body>
 </html>

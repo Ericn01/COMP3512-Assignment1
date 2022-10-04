@@ -3,77 +3,69 @@
   include '../Controller/home-controller.class.php';
   $homeControl = new HomePageController();
 
+  function makeTwoAttributeTable($results, $label1, $label2, $colName1, $colName2, $isScoreTable){
+    echo "<table>";
+      echo "<tr>";
+        echo "<th>" . $label1 . "</th>";
+        echo "<th>" . $label2. "</th>";
+      echo "</tr>";
+      if ($isScoreTable){
+        foreach($results as $r){
+          echo "<tr>";
+            $score = intval($r[$colName2]);
+            echo "<td> " . $r["$colName1"] . "</td>";
+            echo "<td> " . round($score / 3, 1) . " % </td>";
+          echo "</tr>";
+        }
+      }
+      else{
+        foreach($results as $r){
+          echo "<tr>";
+            echo "<td> " . $r["$colName1"] . "</td>";
+            echo "<td> " . $r["$colName2"] . "</td>";
+          echo "</tr>";
+        }
+      }
+    echo "</table>";
+  }
   function viewTopGenres($controller){
     $topGenres = $controller->topGenres();
-    echo "<ol>";
-    foreach($topGenres as $genre) {
-      echo "<li> " . $genre['Genre'] . " -> " . $genre['Song Count'] . " songs </li>";
-    }
-    echo "</ol>";
+    makeTwoAttributeTable($topGenres, 'Genre' , 'Number of Songs', 'Genre', 'Song Count', false);
   }
 
   function viewPopularSongs($controller){
     $popularSongs = $controller->popularSongs();
-    echo "<ol>";
-    foreach($popularSongs as $row){
-      echo "<li> " . $row['Song Name'] . " (" . $row['Year'] . ") - " . $row['Artist Name'] . "</li>";
-    }
-    echo "</ol>";
+    makeTwoAttributeTable($popularSongs, 'Artist', 'Song Title', 'Song Name', 'Artist Name', false);
   }
 
   function viewTopArtists($controller){
     $topArtists = $controller->topArtists();
-    echo "<ol>";
-    foreach($topArtists as $row){
-      echo "<li> " . $row['Artist Name'] . " -> " . $row['Song Count'] . " songs. </li>";
-    }
-    echo "</ol>";
+    makeTwoAttributeTable($topArtists, 'Artist', 'Number of Songs', 'Artist Name', 'Song Count', false);
   }
 
   function viewLongestAcousticSongs($controller){
     $acousticSongs = $controller->longestAcousticSongs();
-    echo "<ol>";
-    foreach($acousticSongs as $row){
-      echo "<li> " . $row['Song Title'] . " -> " . $row['duration'] . " Acoustic score: " . $row['acousticness'] . "% </li>";
-    }
-    echo "</ol>";
+    makeTwoAttributeTable($acousticSongs, 'Song Title', 'Duration', 'Song Title', 'duration', false);
   }
 
   function viewOneHitWonders($controller){
     $oneHitWonders = $controller->oneHitWonders();
-    echo "<ol>";
-    foreach($oneHitWonders as $row){
-      echo "<li> " . $row['Artist Name'] . " -> " . $row['Num Songs'] . " songs </li>";
-    }
-    echo "</ol>";
+    makeTwoAttributeTable($oneHitWonders, 'Artist', 'Song Title', 'Artist Name', 'Num Songs', false);
   }
 
   function viewRunningSongs($controller){
     $runningSongs = $controller->runningSongs();
-    echo "<ol>";
-    foreach($runningSongs as $row){
-      echo "<li> " . $row['Song Title'] . ". Running Score: " . round($row['Running Score'] / 3, 1) . "% </li>";
-    }
-    echo "</ol>";
+    makeTwoAttributeTable($runningSongs, 'Song Title', 'Running Score', 'Song Title', 'Running Score', true);
   }
 
   function viewClubSongs($controller){
     $clubSongs = $controller->clubSongs();
-    echo "<ol>";
-    foreach($clubSongs as $row){
-      echo "<li> " . $row['Song Title'] . ". Clubbing Score: " . round($row['Clubbing Score'] / 3, 1) . "% </li>";
-    }
-    echo "</ol>";
-
+    makeTwoAttributeTable($clubSongs, 'Song Title', 'Clubbing Score', 'Song Title', 'Clubbing Score', true);
   }
 
   function viewStudyingSongs($controller){
     $studyingSongs = $controller->studyingSongs();
-    echo "<ol>";
-    foreach($studyingSongs as $row){
-      echo "<li> " . $row['Song Title'] . ". Studying Score: " . round($row['Studying Score'] / 3, 1) . "% </li>";
-    }
-    echo "</ol>";
+    makeTwoAttributeTable($studyingSongs, 'Song Title', 'Studying Score', 'Song Title', 'Studying Score', true);
   }
 
 ?>
@@ -86,7 +78,7 @@
    <link href="css/font-selection.css" rel="stylesheet">
 </head>
 <body>
-   <header> </header>
+   <?php include 'header.php'; ?>
    <h1> Home Page </h1>
    <main class="grid-container">
      <div class="link-box top-genres"> Top Genres
@@ -106,6 +98,6 @@
      <div class="link-box studying-songs"> Studying
      <?php viewStudyingSongs($homeControl); ?> </div>
    </main>
-   <footer> </footer>
+   <?php include 'footer.php'; ?>
 </body>
 </html>
