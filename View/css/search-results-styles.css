@@ -5,39 +5,7 @@
   --complimentary-color: #008080;
   --highlight-color: #FFA2FF;
 }
-th, td{
-  text-align: left;
-  padding: 7.5px;
-}
-thead{
-  box-shadow: 0 3px 12px gray;
-}
-th{
-  background-color: var(--highlight-color);
-  padding: 0.8rem 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bolder;
-  font-size: 0.9rem;
-}
-td{
-  padding: 1rem;
-}
-tr{
-  background-color: var(--contrasting-color)
-}
-tr:nth-child(even){
-  background-color: var(--complimentary-color);
-}
-table{
-  table-layout: fixed;
-  background-color: snow;
-  border-collapse: collapse;
-  margin: 10px auto;
-  box-shadow: 1px 6px 10px black;
-  text-align: left;
-  overflow: hidden;
-}
+
 a{
   text-decoration: none;
   color: black;
@@ -51,4 +19,52 @@ tr:hover{
   cursor: pointer;
   transition: 0.25s; /* SMOOOOOOTH */
   transform: scale(1.01);
+}
+/* Grid problems first begin to show up when the width hits 1250px */
+@media only screen and (max-width: 1000px){
+  h1{
+    font-size: 35px;
+  }
+  td, th{
+    font-size: 15px;
+  }
+  table{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 750px){
+  h1{
+    font-size: 30px;
+  }
+  td{
+    font-size: 15px;
+  }
+  th{
+    font-size: 14px;
+    letter-spacing: none;
+  }
+  table{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  h1{
+    font-size: 25px;
+  }
+  h2{
+    font-size: 18.5px;
+  }
+  h3{
+    font-size: 16px;
+  }
+  li{
+    font-size: 14px;
+  }
+  td{
+    font-size: 11.5px;
+  }
+
+
 }

@@ -52,7 +52,7 @@
            <th> Genre </th>
            <th> Popularity </th>
          </tr>
-       <thead>
+       </thead>
        <tbody>
         <?php viewFormValues($entries) ?>
        </tbody>

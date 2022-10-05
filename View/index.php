@@ -5,32 +5,36 @@
 
   function makeTwoAttributeTable($results, $label1, $label2, $colName1, $colName2, $isScoreTable){
     echo "<table>";
-      echo "<tr>";
-        echo "<th>" . $label1 . "</th>";
-        echo "<th>" . $label2. "</th>";
-      echo "</tr>";
-      if ($isScoreTable){
-        foreach($results as $r){
-          echo "<tr>";
-            $score = intval($r[$colName2]);
-            echo "<td> " . $r["$colName1"] . "</td>";
-            echo "<td> " . round($score / 3, 1) . " % </td>";
-          echo "</tr>";
+      echo "<thead>";
+        echo "<tr>";
+          echo "<th>" . $label1 . "</th>";
+          echo "<th>" . $label2. "</th>";
+        echo "</tr>";
+      echo "<thead>";
+      echo "<tbody>";
+        if ($isScoreTable){
+          foreach($results as $r){
+            echo "<tr>";
+              $score = intval($r[$colName2]);
+              echo "<td> " . $r["$colName1"] . "</td>";
+              echo "<td> " . round($score / 3, 1) . " % </td>";
+            echo "</tr>";
+          }
         }
-      }
-      else{
-        foreach($results as $r){
-          echo "<tr>";
-            echo "<td> " . $r["$colName1"] . "</td>";
-            echo "<td> " . $r["$colName2"] . "</td>";
-          echo "</tr>";
+        else{
+          foreach($results as $r){
+            echo "<tr>";
+              echo "<td> " . $r["$colName1"] . "</td>";
+              echo "<td> " . $r["$colName2"] . "</td>";
+            echo "</tr>";
+          }
         }
-      }
+      echo "</tbody>";
     echo "</table>";
   }
   function viewTopGenres($controller){
     $topGenres = $controller->topGenres();
-    makeTwoAttributeTable($topGenres, 'Genre' , 'Number of Songs', 'Genre', 'Song Count', false);
+    makeTwoAttributeTable($topGenres, 'Genre' , 'Songs', 'Genre', 'Song Count', false);
   }
 
   function viewPopularSongs($controller){
@@ -40,7 +44,7 @@
 
   function viewTopArtists($controller){
     $topArtists = $controller->topArtists();
-    makeTwoAttributeTable($topArtists, 'Artist', 'Number of Songs', 'Artist Name', 'Song Count', false);
+    makeTwoAttributeTable($topArtists, 'Artist', 'Songs', 'Artist Name', 'Song Count', false);
   }
 
   function viewLongestAcousticSongs($controller){
@@ -81,21 +85,21 @@
    <?php include 'header.php'; ?>
    <h1> Home Page </h1>
    <main class="grid-container">
-     <div class="link-box top-genres"> Top Genres
+     <div class="link-box top-genres"> <p class='label'> Top Genres </p>
      <?php viewTopGenres($homeControl); ?> </div>
-     <div class="link-box top-artists"> Top Artists
+     <div class="link-box top-artists"> <p class='label'>  Top Artists </p>
       <?php viewTopArtists($homeControl); ?> </div>
-     <div class="link-box popular-songs"> Most Popular Songs
+     <div class="link-box popular-songs"> <p class='label'>  Most Popular Songs </p>
        <?php viewPopularSongs($homeControl); ?> </div>
-     <div class="link-box one-hit"> One Hit Wonders
+     <div class="link-box one-hit"> <p class='label'>  One Hit Wonders </p>
      <?php viewOneHitWonders($homeControl); ?> </div>
-     <div class="link-box longest-acoustic"> Longest Acoustic Songs
+     <div class="link-box longest-acoustic"> <p class='label'>  Longest Acoustic Songs </p>
        <?php viewLongestAcousticSongs($homeControl); ?> </div>
-     <div class="link-box club-songs"> At The Club
+     <div class="link-box club-songs"> <p class='label'>  At The Club </p>
      <?php viewClubSongs($homeControl); ?> </div>
-     <div class="link-box running-songs"> Running Songs
+     <div class="link-box running-songs"> <p class='label'> Running Songs </p>
      <?php viewRunningSongs($homeControl); ?></div>
-     <div class="link-box studying-songs"> Studying
+     <div class="link-box studying-songs"> <p class='label'> Studying </p>
      <?php viewStudyingSongs($homeControl); ?> </div>
    </main>
    <?php include 'footer.php'; ?>

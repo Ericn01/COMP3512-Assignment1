@@ -108,7 +108,9 @@
             <br><br>
             <input type='number' name='between-high-param' min='2015' max='2020'>
             <br><br> <!-- Change later -->
-            <button type="submit" name="submit-basic" value="basic"> Search </button>
+            <div class='button-wrapper'>
+              <button type="submit" name="submit-basic" value="basic"> Search </button>
+            </div>
           </div>
         </div>
       </form>
@@ -124,7 +126,9 @@
               }
             ?>
         </div>
-        <button type="submit" name="submit-advanced" value="advanced"> Search </button>
+        <div class='button-wrapper'>
+          <button type="submit" name="submit-advanced" value="advanced"> Search </button>
+        </div>
       </form>
    </main>
    <?php include 'footer.php'; ?>
