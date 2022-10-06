@@ -7,8 +7,7 @@
   $assignmentName = "COMP3512 Assignment 1";
   $author = "Eric Nielsen";
   echo "<div class='main-content'>";
-    echo "<h2> $assignmentName - " . date("F j, Y") . "</h2>";
-    echo "<br>";
+    echo "<h2> $assignmentName </h2>";
     echo "<h3> $author </h3>";
   echo "</div>";
 

@@ -38,6 +38,7 @@ tr:nth-child(even){
   background-color: var(--complimentary-color);
 }
 table{
+  table-layout: fixed;
   border-collapse: collapse;
   margin: 10px auto;
   box-shadow: 1px 6px 10px black;

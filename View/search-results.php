@@ -23,8 +23,10 @@
         echo "<td>";
           echo $entry['popularity'];
         echo "</td>";
+        echo "<td class='favorites'>";
+          echo "<a href='../Controller/favorites-controller.php' class='not-favorite'> <img src='images/x.png' alt='No' width='16.5px' title='Click to add as favorite'/> </a>";
+        echo "</td>";
       echo "</tr>";
-
     }
   }
  ?>
@@ -51,8 +53,9 @@
            <th> Year </th>
            <th> Genre </th>
            <th> Popularity </th>
+           <th class='favorites'> Favorite </th>
          </tr>
-       </thead>
+       <thead>
        <tbody>
         <?php viewFormValues($entries) ?>
        </tbody>

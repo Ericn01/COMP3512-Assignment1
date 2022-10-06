@@ -8,6 +8,7 @@
 .grid-container{
   color: black;
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(4, minmax(0, 1fr)); /* Make 4 columns of equal size*/
   grid-template-rows:repeat(2, minmax(0, 1fr));
   gap: 7.5px 12.5px;
@@ -31,16 +32,7 @@
   transform: scale(1.005);
   cursor: pointer;
 }
-
-/* List styling */
-
-li{
-  font-size: 20px;
-  padding-bottom: 5px;
-  font-weight: 500;
-}
-
-
+/* Yanking the code out from the search results page to show these results*/
 th{
   font-weight: bold;
   background-color: var(--highlight-color);
@@ -60,11 +52,6 @@ tr{
 tr:nth-child(even){
   background-color: var(--complimentary-color);
 }
-
-.label{
-  padding: 10px;
-  font-size: 26px;
-}
 table{
   width: 92%;
   table-layout: fixed;
@@ -75,6 +62,42 @@ table{
   text-align: left;
   overflow: hidden;
 }
+
+/* CSS for the background images of the links */
+/* .top-genres{
+  background-image: url("../images/genres.jpg");
+}
+.top-artists{
+  background-image: url("../images/artist.jpg");
+}
+.popular-songs{
+  background-image: url("../images/popular.jpg");
+}
+.one-hit{
+  background-image: url("../images/one-hit-wonder.jpg");
+}
+.longest-acoustic{
+  background-image: url("../images/acoustic.jpg");
+}
+.club-songs{
+  background-image: url("../images/club.jpg");
+}
+.studying-songs{
+  background-image: url("../images/studying.jpg");
+}
+.running-songs{
+  background-image: url("../images/running.jpg");
+} */
+
+
+/* List styling */
+
+li{
+  font-size: 20px;
+  padding-bottom: 5px;
+  font-weight: 500;
+}
+
 /* Responsive grid layout */
 
 /* Grid problems first begin to show up when the width hits 1250px */
@@ -88,7 +111,7 @@ table{
 @media only screen and (max-width: 600px){
   .grid-container{
     grid-template-columns: 1fr;
-  }
+}
   .link-box{
     font-size: 20px;
   }

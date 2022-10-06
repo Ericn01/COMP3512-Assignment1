@@ -89,7 +89,7 @@
       }
       return $bpmInterpret;
     }
-  
+
     // Gives meaning to the speechiness value from the given song.
     public function interpretSpeechiness($speechiness){
       $speechiness = intval($speechiness);
@@ -158,10 +158,9 @@
       else {
         $energyInterpret .= 'Extremely intense';
       }
-      $energyInterpret .= " ($energy%)";
       return $energyInterpret;
     }
-  
+
 
   // Interprets the valence (positivity of the song)
   public function interpretValence($valence){

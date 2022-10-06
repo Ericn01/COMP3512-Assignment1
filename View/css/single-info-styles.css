@@ -30,8 +30,8 @@
 .analysis{
   display: grid;
   justify-content: start;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: 0.30fr repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(0px, auto));
   gap: 8.5px;
 }
 
@@ -41,6 +41,7 @@
   font-size: 25px;
 }
 .analysis-trait{
+  align-self: start;
   background-color: var(--complimentary-color);
   font-size: 18px;
   text-align: center;
@@ -53,9 +54,14 @@
   background-color: var(--highlight-color);
   transform: scale(1.035);
 }
-h3{
-  font-size: 1.5rem;
+
+.Danceability{
+  grid-column: span 2;
 }
+.Danceability progress{
+  width: 10rem;
+}
+
 h1{
   color: var(--highlight-color);
   text-shadow: 3px 2px 1.5px black;
@@ -65,24 +71,90 @@ h1{
   letter-spacing: 1.2px;
   font-weight: 800;
 }
-h2{
+.analysis-header{
+  margin-bottom: 40px;
   text-align: center;
-  grid-column: span 4;
+  grid-column: span 3;
   height: 10px;
+  align-self: start;
   font-size: 28px;
 }
 progress{
   -webkit-appearance: none;
-  margin: 0 15px;
-  width: 10rem;
-  height: 20px;
+  margin: 0 12px;
+  width: 7.5rem;
+  height: 16px;
   overflow: hidden;
   border: 0.2px solid black;
   border-radius: 20px;
+}
+progress::-webkit-progress-value { background: var(--highlight-color); } /* Chrome & others */
+progress::-moz-progress-bar { background: var(--highlight-color);} /* Firefox browser */
+.progress-info{
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 p{
   margin-top: 15px;
   font-size: 18px;
   font-weight: bold;
+}
+
+/* Grid problems first begin to show up when the width hits 1250px */
+@media only screen and (max-width: 1480px){
+  .analysis{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0px, auto));
+    gap: 4px;
+  }
+  .analysis-header{
+    grid-column: span 2;
+  }
+  .analysis-trait h3{
+    letter-spacing: 1px;
+  }
+  progress{
+    width: 6rem;
+  }
+  .Danceability{
+    grid-column: span 1;
+  }
+  .Danceability progress{
+    width: 6rem;
+  }
+
+}
+
+@media only screen and (max-width: 1000px){
+  .analysis{
+    display: block;
+  }
+  .analysis-trait{
+    margin: 25px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .analysis-header{
+    margin-bottom: 60px;
+  }
+  .progress-info{
+    font-size: 12px;
+    font-weight: normal;
+  }
+  progress{
+    height: 14px;
+    width: 3rem;
+  }
+  .analysis-trait{
+    font-size: 18px;
+  }
+  .Danceability .progress-info{
+    font-size: 11.5px;
+  }
+  .Danceability progress{
+    width: 2.5rem;
+  }
 }

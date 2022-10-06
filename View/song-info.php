@@ -40,26 +40,27 @@
     echo "<div class='analysis-trait $paramName'>";
       echo "<h3> $paramName </h3>";
       echo "<p> $paramInterpreted </p>";
+      echo "<br>";
       if ($paramName != 'BPM'){
-        echo "<p>" . $lowEnd. "<progress class='progress-bar' value=" . $value . " min='0' max='100'> </progress>" . $highEnd . "</p>";
+        echo "<p class='progress-info'>" . $lowEnd. "<progress class='progress-bar' value=" . $value . " min='0' max='100'> </progress>" . $highEnd . "</p>";
       }
       else{
-        echo  "<p>" . $lowEnd . "<progress class='progress-bar' value=" . $value . " min='50' max='210'></progress> " . $highEnd . "</p>";
+        echo  "<p class='progress-info'>" . $lowEnd . "<progress class='progress-bar' value=" . $value . " min='50' max='210'></progress> " . $highEnd . "</p>";
       }
     echo "</div>";
   }
 
   function makeSongInfoAnalysis($bpm, $energy, $danceability, $liveness, $valence, $acousticness, $speechiness, $popularity, $songObj){
     echo "<div class='song-info analysis'>";
-      echo "<h2> Song Analysis </h2>";
+      echo "<h2 class='analysis-header'> Song Analysis </h2>";
       makeSongAttributeBox('Popularity', $popularity, $songObj->getPopularity(), 'Not Popular', 'Very Popular');
-      makeSongAttributeBox('BPM', $bpm, $songObj->getBpm(), 'Slow tempo', 'Rapid tempo');
+      makeSongAttributeBox('BPM', $bpm, $songObj->getBpm(), 'Slow Tempo', 'Rapid Tempo');
       makeSongAttributeBox('Energy', $energy, $songObj->getEnergy(), 'Low Energy', 'High Energy');
       makeSongAttributeBox('Valence', $valence, $songObj->getValence(), 'Sad Mood', 'Happy Mood');
       makeSongAttributeBox('Acousticness', $acousticness, $songObj->getAcousticness(), 'Not Acoustic', 'Very Acoustic');
-      makeSongAttributeBox('Speechiness', $speechiness, $songObj->getSpeechiness(), 'Less lyrics', 'More lyrics');
-      makeSongAttributeBox('Liveness', $liveness, $songObj->getLiveness(), 'No audience', 'High audience');
-      makeSongAttributeBox('Danceability', $danceability, $songObj->getDanceability(), "Low danceability", 'High danceability');
+      makeSongAttributeBox('Speechiness', $speechiness, $songObj->getSpeechiness(), 'Less Lyrics', 'More Lyrics');
+      makeSongAttributeBox('Liveness', $liveness, $songObj->getLiveness(), 'Low Liveness', 'High Liveness');
+      makeSongAttributeBox('Danceability', $danceability, $songObj->getDanceability(), "Not Danceable", 'Very Danceable');
     echo "</div>";
   }
 ?>
