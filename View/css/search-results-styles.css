@@ -23,13 +23,12 @@ tr:hover{
   transition: 0.25s; /* SMOOOOOOTH */
   transform: scale(1.01);
 }
-.favorites{
+.centered{
   text-align: center;
 }
 .not-favorite{
   background: url("images/x.png") no-repeat;
   width: 16.5px;
-
 }
 .not-favorite:hover{
   transition: 2s ease;
@@ -42,11 +41,18 @@ tr:hover{
   h1{
     font-size: 35px;
   }
-  td, th{
+  td{
     font-size: 15px;
+  }
+
+  th{
+    font-size: 0.7rem;
   }
   table{
     width: 100%;
+  }
+  .not-favorite .is-favorite{
+    width: 15px;
   }
 }
 
@@ -64,6 +70,10 @@ tr:hover{
   table{
     width: 100%;
   }
+  .not-favorite .is-favorite{
+    width: 14.5px;
+  }
+
 }
 
 @media only screen and (max-width: 600px){
@@ -81,5 +91,8 @@ tr:hover{
   }
   td{
     font-size: 11.5px;
+  }
+  .not-favorite .is-favorite{
+    width: 13px;
   }
 }

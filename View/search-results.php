@@ -2,6 +2,7 @@
   include "../Controller/song-search-controller.class.php";
   $songSearchObj = new SongSearchController();
   $entries = $songSearchObj->getFormValues();
+
   function viewFormValues($entries){
     foreach($entries as $entry){
       echo "<tr>";
@@ -19,12 +20,12 @@
         echo "<td>";
           echo $entry['genre_name'];
         echo "</td>";
-        echo "<td>";
-          echo $entry['popularity'];
+        echo "<td class='centered'>";
+          echo $entry['popularity'] . "%";
         echo "</td>";
-        echo "<td class='favorites'>";
+        echo "<td class='centered favorite'>";
           if (isset($_SESSION['favorites']) && in_array($entry['song_id'])){
-            echo "<a href='favorites.php?" . $entry['song_id'] . "' class='favorite'> <img src='images/checkmark.png' alt='No' width='16.5px' title='Click to remove as favorite'/> </a>";
+            echo "<a href='favorites.php?" . $entry['song_id'] . "' class='is-favorite'> <img src='images/checkmark.png' alt='No' width='16.5px' title='Click to remove as favorite'/> </a>";
           }
           else{
             echo "<a href='favorites.php?" . $entry['song_id'] . "' class='not-favorite'> <img src='images/x.png' alt='No' width='16.5px' title='Click to add as favorite'/> </a>";
@@ -56,8 +57,8 @@
            <th> Artist </th>
            <th> Year </th>
            <th> Genre </th>
-           <th> Popularity </th>
-           <th class='favorites'> Favorite </th>
+           <th class='centered'> Popularity </th>
+           <th class='centered'> Favorite </th>
          </tr>
        <thead>
        <tbody>

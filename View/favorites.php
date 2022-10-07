@@ -1,5 +1,6 @@
 <?php
   include "../Controller/favorites-controller.class.php";
+  require("../includes/add-session.inc.php");
   $songId = trim($_SERVER['QUERY_STRING'], 'song_id=');
   $favController = new FavoritesController($songId);
 
@@ -58,8 +59,8 @@
        <thead>
        <tbody>
         <?php
-        $tableData = $favController->getFavoritesData($favController->sessionName);
-        printTable($tableData);
+          $tableData = $favController->getFavoritesData();
+          printTable($tableData);
 
         ?>
        </tbody>
