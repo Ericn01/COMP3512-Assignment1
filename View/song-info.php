@@ -70,6 +70,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> Home Page </title>
+   <link rel="icon" type="image/x-icon" href="images/favicon.png">
    <link href="css/single-info-styles.css" rel="stylesheet">
    <link href="css/font-selection.css" rel="stylesheet">
 </head>

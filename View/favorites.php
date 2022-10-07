@@ -1,13 +1,12 @@
 <?php
   include "../Controller/favorites-controller.class.php";
-  $favoritesObj = new FavoritesController();
-  $entries = $favoritesObj->getFavoriteSongs();
+  $songId = trim($_SERVER['QUERY_STRING'], 'song_id=');
+  $favController = new FavoritesController($songId);
 
-  function viewFavorites($entries){
-    foreach($entries as $entry){
+  function viewFavorites($entry){
       echo "<tr>";
         echo "<td>";
-          echo "<a href='song-info.php?sond_id=" . $entry['song_id'] . "'/>";
+          echo "<a href='song-info.php?song_id=" . $entry['song_id'] . "'/>";
             echo $entry['title'];
           echo "</a>";
         echo "</td>";
@@ -25,7 +24,12 @@
         echo "</td>";
       echo "</tr>";
     }
-  }
+
+    function printTable($tableData){
+      foreach($tableData as $row){
+        viewFavorites($row);
+      }
+    }
  ?>
 <!DOCTYPE html>
 <html>
@@ -33,14 +37,14 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> Favorites </title>
-
+   <link rel="icon" type="image/x-icon" href="images/favicon.png">
    <link href="css/font-selection.css" rel="stylesheet">
    <link href="css/search-results-styles.css" rel="stylesheet">
 </head>
 <body>
    <?php include 'header.php'; ?>
    <main class="container">
-     <h1> Search Results </h1>
+     <h1> Favorite Songs </h1>
      <!-- This page is going to be presenting a large table containing the desired song data -->
      <table>
        <thead>
@@ -53,7 +57,11 @@
          </tr>
        <thead>
        <tbody>
-        <?php viewFavorites($entries) ?>
+        <?php
+        $tableData = $favController->getFavoritesData($favController->sessionName);
+        printTable($tableData);
+
+        ?>
        </tbody>
      </table>
    </main>

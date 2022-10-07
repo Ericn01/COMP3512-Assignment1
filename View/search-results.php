@@ -2,7 +2,6 @@
   include "../Controller/song-search-controller.class.php";
   $songSearchObj = new SongSearchController();
   $entries = $songSearchObj->getFormValues();
-
   function viewFormValues($entries){
     foreach($entries as $entry){
       echo "<tr>";
@@ -24,7 +23,12 @@
           echo $entry['popularity'];
         echo "</td>";
         echo "<td class='favorites'>";
-          echo "<a href='../Controller/favorites-controller.php' class='not-favorite'> <img src='images/x.png' alt='No' width='16.5px' title='Click to add as favorite'/> </a>";
+          if (isset($_SESSION['favorites']) && in_array($entry['song_id'])){
+            echo "<a href='favorites.php?" . $entry['song_id'] . "' class='favorite'> <img src='images/checkmark.png' alt='No' width='16.5px' title='Click to remove as favorite'/> </a>";
+          }
+          else{
+            echo "<a href='favorites.php?" . $entry['song_id'] . "' class='not-favorite'> <img src='images/x.png' alt='No' width='16.5px' title='Click to add as favorite'/> </a>";
+          }
         echo "</td>";
       echo "</tr>";
     }
@@ -36,7 +40,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Search Results </title>
-
+   <link rel="icon" type="image/x-icon" href="images/favicon.png">
    <link href="css/font-selection.css" rel="stylesheet">
    <link href="css/search-results-styles.css" rel="stylesheet">
 </head>

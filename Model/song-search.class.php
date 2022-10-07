@@ -20,7 +20,15 @@
         protected function getTopGenres(){
 
         }
-
+        # =========================== FAVORITES PAGE CONSTRUCTED QUERY ====================== #
+        public function getFavorite($songId){
+          $sql = self::$baseSql;
+          $sql .= " WHERE song_id = ?";
+          $statement = $this->databaseConnect()->prepare($sql);
+          $statement-> execute([$songId]);
+          $result = $statement->fetch();
+          return $result;
+        }
         # ========================= SEARCH PAGE CONSTRUCTED QUERIES ======================= #
         // Possible queries from the song search page
         protected function getSongByField($paramName, $value){

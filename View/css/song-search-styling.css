@@ -102,6 +102,13 @@ h2{
     margin-bottom: 2rem;
 }
 
+.note{
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+  text-shadow: 1px 1px 12px var(--highlight-color);
+}
 
 @media only screen and (max-width: 875px){
   .advanced-song-search{

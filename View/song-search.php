@@ -39,12 +39,14 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Song Search</title>
+   <link rel="icon" type="image/x-icon" href="images/favicon.png">
    <link href="css/song-search-styling.css" rel="stylesheet">
    <link href="css/font-selection.css" rel="stylesheet">
 </head>
 <body>
    <?php include 'header.php'; ?>
    <h1> Song Search </h1>
+   <h3 class='note'> *** If no input is given, all songs will be returned. *** </h3>
    <main class="flex-container">
      <form class='basic-search-form' action='../View/search-results.php' method='POST'>
         <!-- Basic song search section -->
@@ -102,7 +104,7 @@
             <input type='number' name='year-greater-input' min='2015' max='2020'>
             <br><br>
             <!-- Between input value section -->
-            <input type='radio' name='greater-less-between' value='year'>
+            <input type='radio' name='greater-less-between' value='between'>
             <label for='between-input'> Between </label>
             <input type='number' name='between-low-param' min='2015' max ='2020'>
             <br><br>
