@@ -24,16 +24,16 @@
     public function interpretPopularity($popularity){
       $popularityInt = intval($popularity);
       $popInterpret= "Relative to others, this song is ";
-      if ($popularity <= 30){
+      if ($popularity <= 62){
         $popInterpret . " not popular";
       }
-      else if ($popularityInt > 30 && $popularityInt <= 60){
+      else if ($popularityInt > 62 && $popularityInt <= 76){
         $popInterpret .= " somewhat popular";
       }
-      else if ($popularityInt > 60 && $popularityInt <= 80){
+      else if ($popularityInt > 76 && $popularityInt <= 84){
         $popInterpret .= " popular";
       }
-      else if ($popularityInt > 80 && $popularityInt <= 90){
+      else if ($popularityInt > 84 && $popularityInt <= 88){
         $popInterpret .= " very popular";
       }
       else {
@@ -45,20 +45,20 @@
     public function interpretDanceability($danceability){
       $danceability = intval($danceability);
       $danceabilityInterpret= "This song  ";
-      if ($danceability <= 20){
+      if ($danceability <= 40){
         $danceabilityInterpret . " probably won't make you want to dance";
       }
-      else if ($danceability > 20 && $danceability <= 45){
+      else if ($danceability > 40 && $danceability <= 60){
         $danceabilityInterpret .= " might make you want to move a little";
       }
-      else if ($danceability > 45 && $danceability <= 80){
+      else if ($danceability > 60 && $danceability <= 80){
         $danceabilityInterpret .= " will probably make you want to dance";
       }
       else if ($danceability > 80 && $danceability <= 90){
         $danceabilityInterpret .= " will make almost certainly make you dance";
       }
       else {
-        $danceabilityInterpret .= " is contagiously danceable";
+        $danceabilityInterpret .= " will absolutely make you dance!";
       }
       return $danceabilityInterpret;
     }
@@ -94,13 +94,13 @@
     public function interpretSpeechiness($speechiness){
       $speechiness = intval($speechiness);
       $speechInterpret = "The artist sings ";
-      if ($speechiness < 30){
+      if ($speechiness < 20){
         $speechInterpret .= ' a little bit';
       }
-      else if ($speechiness > 30 && $speechiness <= 65){
+      else if ($speechiness > 20 && $speechiness <= 40){
         $speechInterpret .= ' a normal amount';
       }
-      else if ($speechiness > 65 && $speechiness <= 85){
+      else if ($speechiness > 40 && $speechiness <= 50){
         $speechInterpret .= ' a lot';
       }
       else {
@@ -113,19 +113,19 @@
     public function interpretLiveness($liveness){
       $liveness = intval($liveness);
       $livenessInterpret = "This song has ";
-      if ($liveness  < 15){
+      if ($liveness  < 8){
         $livenessInterpret .= ' almost no liveness';
       }
-      else if ($liveness > 15 && $liveness  <= 30){
+      else if ($liveness > 8 && $liveness  <= 24){
         $livenessInterpret .= ' low liveness';
       }
-      else if ($liveness  > 30 && $liveness  <= 50){
+      else if ($liveness  > 24 && $liveness  <= 36){
         $livenessInterpret .= ' moderate liveness';
       }
-      else if ($liveness > 50 && $liveness <= 70){
+      else if ($liveness > 36 && $liveness <= 42){
         $livenessInterpret .= ' fairly high liveness';
       }
-      else if ($liveness > 70 && $liveness <= 80){
+      else if ($liveness > 42 && $liveness <= 48){
         $livenessInterpret .= ' high liveness';
       }
       else{
@@ -137,26 +137,23 @@
     public function interpretEnergy($energy){
       $energy = intval($energy);
       $energyInterpret = "";
-      if ($energy  < 15){
+      if ($energy  < 25){
         $energyInterpret .= 'Not energetic';
       }
-      else if ($energy > 15 && $energy <= 30){
+      else if ($energy > 25 && $energy <= 50){
         $energyInterpret .= 'Low energy';
       }
-      else if ($energy  > 30 && $energy  <= 70){
+      else if ($energy  > 50 && $energy  <= 65){
         $energyInterpret .= 'Mildy energetic';
       }
-      else if ($energy > 50 && $energy <= 70){
+      else if ($energy > 65 && $energy <= 82){
         $energyInterpret .= 'Energetic';
       }
-      else if ($energy > 70 && $energy <= 80){
+      else if ($energy > 82 && $energy <= 91){
         $energyInterpret .= 'Highly energetic';
       }
-      else if ($energy > 80 && $energy <= 95){
-        $energyInterpret .= 'Intense';
-      }
       else {
-        $energyInterpret .= 'Extremely intense';
+        $energyInterpret .= 'Intensely energetic';
       }
       return $energyInterpret;
     }
@@ -181,7 +178,7 @@
     else if ($valence > 70 && $valence <= 80){
       $valenceInterpret .= ' cheerful';
     }
-    else if ($valence > 80 && $valence <= 95){
+    else if ($valence > 80 && $valence <= 90){
       $valenceInterpret .= ' happy';
     }
     else {
@@ -194,10 +191,10 @@
   public function interpretAcousticness($acousticness){
   $acousticness = intval($acousticness);
   $acousticnessInterpret = "The song ";
-  if ($acousticness  < 15){
+  if ($acousticness  < 20){
     $acousticnessInterpret .= ' is not acoustic';
   }
-  else if ($acousticness > 15 && $acousticness  <= 30){
+  else if ($acousticness > 20 && $acousticness  <= 30){
     $acousticnessInterpret .= ' has low acousticness';
   }
   else if ($acousticness  > 30 && $acousticness  <= 50){
@@ -206,7 +203,7 @@
   else if ($acousticness > 50 && $acousticness <= 70){
     $acousticnessInterpret .= ' has decent acousticness';
   }
-  else if ($acousticness > 70 && $acousticness <= 80){
+  else if ($acousticness > 70 && $acousticness <= 85){
     $acousticnessInterpret .= ' has great acousticness';
   }
   else{
