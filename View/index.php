@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
   include '../Controller/home-controller.class.php';
+  session_start(); // Session is started as the user logs onto the website
+  $favoriteSongs = $_SESSION['favorites'];
   $homeControl = new HomePageController();
-
   function makeTwoAttributeTable($results, $label1, $label2, $colName1, $colName2, $isScoreTable){
     echo "<table>";
       echo "<thead>";

@@ -1,5 +1,6 @@
 <?php
   include "../Controller/song-search-controller.class.php";
+  session_start();
   $songSearchObj = new SongSearchController();
   $entries = $songSearchObj->getFormValues();
 
@@ -24,7 +25,7 @@
           echo $entry['popularity'] . "%";
         echo "</td>";
         echo "<td class='centered favorite'>";
-          if (isset($_SESSION['favorites']) && in_array($entry['song_id'])){
+          if (isset($_SESSION['favorites']) && in_array($entry['song_id'], $_SESSION['favorites'])){
             echo "<a href='favorites.php?" . $entry['song_id'] . "' class='is-favorite'> <img src='images/checkmark.png' alt='No' width='16.5px' title='Click to remove as favorite'/> </a>";
           }
           else{

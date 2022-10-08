@@ -1,10 +1,14 @@
 <?php
   include "../Controller/favorites-controller.class.php";
   require("../includes/add-session.inc.php");
+  session_start();
   $songId = trim($_SERVER['QUERY_STRING'], 'song_id=');
   $favController = new FavoritesController($songId);
 
+  addSession($songId); // Adds the specified song ID to the session when the page is loaded.
+
   function viewFavorites($entry){
+    if (!empty($entry)){
       echo "<tr>";
         echo "<td>";
           echo "<a href='song-info.php?song_id=" . $entry['song_id'] . "'/>";
@@ -20,10 +24,11 @@
         echo "<td>";
           echo $entry['genre_name'];
         echo "</td>";
-        echo "<td>";
-          echo $entry['popularity'];
+        echo "<td class='centered'>";
+          echo $entry['popularity'] . "%";
         echo "</td>";
       echo "</tr>";
+      }
     }
 
     function printTable($tableData){
@@ -54,7 +59,7 @@
            <th> Artist </th>
            <th> Year </th>
            <th> Genre </th>
-           <th> Popularity </th>
+           <th class='centered'> Popularity </th>
          </tr>
        <thead>
        <tbody>
