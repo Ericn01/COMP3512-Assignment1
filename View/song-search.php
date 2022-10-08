@@ -41,7 +41,7 @@
    <title>Song Search</title>
    <link rel="icon" type="image/x-icon" href="images/favicon.png">
    <link href="css/song-search-styling.css" rel="stylesheet">
-   <link href="css/font-selection.css" rel="stylesheet">
+   <link href="css/global-styles.css" rel="stylesheet">
 </head>
 <body>
    <?php include 'header.php'; ?>

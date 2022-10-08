@@ -9,7 +9,6 @@
 td{
   width: 16.66%;
 }
-
 a{
   text-decoration: none;
   color: black;
@@ -44,14 +43,13 @@ tr:hover{
   td{
     font-size: 15px;
   }
-
-  th{
-    font-size: 0.7rem;
+  thead tr th{
+    font-size: 14.5px;
   }
   table{
     width: 100%;
   }
-  .not-favorite .is-favorite{
+  img{
     width: 15px;
   }
 }
@@ -63,15 +61,15 @@ tr:hover{
   td{
     font-size: 15px;
   }
-  th{
-    font-size: 14px;
+  thead tr th{
+    font-size: 13px;
     letter-spacing: none;
   }
   table{
     width: 100%;
   }
-  .not-favorite .is-favorite{
-    width: 14.5px;
+  img {
+    width: 13px;
   }
 
 }
@@ -90,9 +88,22 @@ tr:hover{
     font-size: 14px;
   }
   td{
-    font-size: 11.5px;
+    padding: none;
+    width: auto;
+    font-size: 9.5px;
   }
-  .not-favorite .is-favorite{
-    width: 13px;
+  table{
+    text-align: center;
+  }
+  thead{
+    margin: 0;
+    padding: 0;
+  }
+  thead tr th{
+    text-align: left;
+    font-size: 8.5px;
+  }
+  img {
+    width: 11px;
   }
 }

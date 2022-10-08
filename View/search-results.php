@@ -43,7 +43,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Search Results </title>
    <link rel="icon" type="image/x-icon" href="images/favicon.png">
-   <link href="css/font-selection.css" rel="stylesheet">
+   <link href="css/global-styles.css" rel="stylesheet">
    <link href="css/search-results-styles.css" rel="stylesheet">
 </head>
 <body>
