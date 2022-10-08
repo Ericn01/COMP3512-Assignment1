@@ -35,7 +35,7 @@
       echo "<p> Duration: $duration minutes </p>";
     echo "</div>";
   }
-
+  // The min and max values at the end of function represent the minimum and maximum values for the given field in the DB. Helps interpret the values.
   function makeSongAttributeBox($paramName, $paramInterpreted, $value, $lowEnd, $highEnd, $min, $max){
     echo "<div class='analysis-trait $paramName'>";
       echo "<h3> $paramName </h3>";

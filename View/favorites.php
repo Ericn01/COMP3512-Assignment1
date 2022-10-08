@@ -25,7 +25,7 @@
           echo $entry['genre_name'];
         echo "</td>";
         echo "<td class='centered'>";
-          echo $entry['popularity'] . "%";
+          echo round(intval($entry['popularity']) * (100 / 91), 1) . "%";
         echo "</td>";
       echo "</tr>";
       }

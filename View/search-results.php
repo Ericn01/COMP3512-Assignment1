@@ -22,7 +22,7 @@
           echo $entry['genre_name'];
         echo "</td>";
         echo "<td class='centered'>";
-          echo $entry['popularity'] . "%";
+          echo round(intval($entry['popularity']) * (100/91), 1) . "%";
         echo "</td>";
         echo "<td class='centered favorite'>";
           if (isset($_SESSION['favorites']) && in_array($entry['song_id'], $_SESSION['favorites'])){

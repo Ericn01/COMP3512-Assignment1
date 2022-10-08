@@ -27,13 +27,13 @@
       if ($popularity <= 62){
         $popInterpret . " not popular";
       }
-      else if ($popularityInt > 62 && $popularityInt <= 76){
+      else if ($popularityInt > 62 && $popularityInt <= 72){
         $popInterpret .= " somewhat popular";
       }
-      else if ($popularityInt > 76 && $popularityInt <= 84){
+      else if ($popularityInt > 72 && $popularityInt <= 81){
         $popInterpret .= " popular";
       }
-      else if ($popularityInt > 84 && $popularityInt <= 88){
+      else if ($popularityInt > 81 && $popularityInt <= 88){
         $popInterpret .= " very popular";
       }
       else {
