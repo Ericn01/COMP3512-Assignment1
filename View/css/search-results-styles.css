@@ -35,6 +35,21 @@ tr:hover{
   background: url("images/checkmark.png") no-repeat;
 }
 
+.button-container{
+  width: 8rem;
+  padding: 15px;
+  margin: auto;
+}
+.clear-favorites{
+
+  width: 9rem;
+  font-size: 0.9rem;
+}
+.clear-favorites:hover{
+  transition: 1.2s ease;
+  background-color: salmon;
+}
+
 /* Grid problems first begin to show up when the width hits 1250px */
 @media only screen and (max-width: 1000px){
   h1{

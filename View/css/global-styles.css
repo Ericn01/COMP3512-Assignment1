@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:wght@300&display=swap');
-// Color palette for the website
+
 :root{
   --dominant-color: #7209b7;
   --contrasting-color: #32BEAF;
@@ -11,14 +11,33 @@
   margin: 0;
   padding: 0;
 }
-
+/* Global body styles */
+body{
+  font-family: 'Playfair Display', serif;
+  background-color: var(--dominant-color);
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  max-width: 85%;
+  margin: 0 auto;
+}
+/* Global table styles */
+table{
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 10px auto;
+  box-shadow: 1px 6px 10px black;
+  overflow: hidden;
+}
+thead{
+  box-shadow: 0 3px 12px gray;
+}
 th, td{
   text-align: left;
   padding-left: 15px;
   padding: 7.5px;
-}
-thead{
-  box-shadow: 0 3px 12px gray;
 }
 th{
   background-color: var(--highlight-color);
@@ -37,26 +56,30 @@ tr{
 tr:nth-child(even){
   background-color: var(--complimentary-color);
 }
-table{
-  table-layout: fixed;
-  border-collapse: collapse;
-  margin: 10px auto;
-  box-shadow: 1px 6px 10px black;
-  overflow: hidden;
+
+/* Global button styles */
+button{
+    cursor:pointer;
+    padding: 8px;
+    width: 9rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    background-color: var(--highlight-color);
+    border-radius: 7.5px;
+    font-weight: bold;
+    border: 1px solid black;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin: auto;
+}
+.button-wrapper{
+  text-align: center;
+}
+button:hover{
+  box-shadow: 2px 2px 3px black;
 }
 
-body{
-  font-family: 'Playfair Display', serif;
-  background-color: var(--dominant-color);
-  height: 100vh;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  max-width: 85%;
-  margin: 0 auto;
-}
-
+/* Global page header (h1 tag) styling */
 h1{
   color: var(--highlight-color);
   text-align: center;

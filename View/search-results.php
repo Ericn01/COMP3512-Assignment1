@@ -26,10 +26,10 @@
         echo "</td>";
         echo "<td class='centered favorite'>";
           if (isset($_SESSION['favorites']) && in_array($entry['song_id'], $_SESSION['favorites'])){
-            echo "<a href='favorites.php?" . $entry['song_id'] . "' class='is-favorite'> <img src='images/checkmark.png' alt='No' width='16.5px' title='Click to remove as favorite'/> </a>";
+            echo "<a href='favorites.php?added=F-song_id=" . $entry['song_id'] . "' class='is-favorite'> <img src='images/checkmark.png' alt='No' width='16.5px' title='Click to remove favorite'/> </a>";
           }
           else{
-            echo "<a href='favorites.php?" . $entry['song_id'] . "' class='not-favorite'> <img src='images/x.png' alt='No' width='16.5px' title='Click to add as favorite'/> </a>";
+            echo "<a href='favorites.php?added=T-song_id=" . $entry['song_id'] . "' class='not-favorite'> <img src='images/x.png' alt='No' width='16.5px' title='Click to add as favorite'/> </a>";
           }
         echo "</td>";
       echo "</tr>";

@@ -11,7 +11,7 @@
           echo "<th>" . $label1 . "</th>";
           echo "<th>" . $label2. "</th>";
         echo "</tr>";
-      echo "<thead>";
+      echo "</thead>";
       echo "<tbody>";
         if ($isScoreTable){
           foreach($results as $r){
@@ -55,7 +55,7 @@
 
   function viewOneHitWonders($controller){
     $oneHitWonders = $controller->oneHitWonders();
-    makeTwoAttributeTable($oneHitWonders, 'Artist', 'Song Title', 'Artist Name', 'Num Songs', false);
+    makeTwoAttributeTable($oneHitWonders, 'Artist', 'Song Title', 'Artist Name', 'Song Title', false);
   }
 
   function viewRunningSongs($controller){

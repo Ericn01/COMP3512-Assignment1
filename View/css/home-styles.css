@@ -52,6 +52,9 @@ tr{
 tr:nth-child(even){
   background-color: var(--complimentary-color);
 }
+th, td{
+  text-align: center;
+}
 table{
   width: 92%;
   table-layout: fixed;

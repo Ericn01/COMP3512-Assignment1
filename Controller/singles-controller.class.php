@@ -24,10 +24,10 @@
     public function interpretPopularity($popularity){
       $popularityInt = intval($popularity);
       $popInterpret= "Relative to others, this song is ";
-      if ($popularity <= 62){
-        $popInterpret . " not popular";
+      if ($popularity <= 60){
+        $popInterpret .= " not popular";
       }
-      else if ($popularityInt > 62 && $popularityInt <= 72){
+      else if ($popularityInt > 60 && $popularityInt <= 72){
         $popInterpret .= " somewhat popular";
       }
       else if ($popularityInt > 72 && $popularityInt <= 81){
@@ -136,24 +136,24 @@
     // Interprets the energy levels of the given song (not energetic to very energetic).
     public function interpretEnergy($energy){
       $energy = intval($energy);
-      $energyInterpret = "";
+      $energyInterpret = "This song is";
       if ($energy  < 25){
-        $energyInterpret .= 'Not energetic';
+        $energyInterpret .= ' not energetic';
       }
       else if ($energy > 25 && $energy <= 50){
-        $energyInterpret .= 'Low energy';
+        $energyInterpret .= ' slighly energetic';
       }
       else if ($energy  > 50 && $energy  <= 65){
-        $energyInterpret .= 'Mildy energetic';
+        $energyInterpret .= ' moderately energetic';
       }
       else if ($energy > 65 && $energy <= 82){
-        $energyInterpret .= 'Energetic';
+        $energyInterpret .= ' fairly energetic';
       }
       else if ($energy > 82 && $energy <= 91){
-        $energyInterpret .= 'Highly energetic';
+        $energyInterpret .= ' highly energetic';
       }
       else {
-        $energyInterpret .= 'Intensely energetic';
+        $energyInterpret .= ' intensely energetic';
       }
       return $energyInterpret;
     }
@@ -184,7 +184,7 @@
     else {
       $valenceInterpret .= ' incredibly joyful';
     }
-    $valenceInterpret .= ' mood.';
+    $valenceInterpret .= ' mood';
     return $valenceInterpret;
   }
 

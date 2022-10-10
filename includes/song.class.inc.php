@@ -72,7 +72,7 @@
       return $this->liveness;
     }
     public function getDurationMinutes(){
-      $durationMin = floor($this->duration/60) . ":" . $this->duration % 60;
+      $durationMin = substr(gmdate("i:s", $this->duration), 1);
       return $durationMin;
     }
     public function getPopularity(){

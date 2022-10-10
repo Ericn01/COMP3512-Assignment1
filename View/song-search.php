@@ -104,7 +104,7 @@
             <input type='number' name='year-greater-input' min='2015' max='2020'>
             <br><br>
             <!-- Between input value section -->
-            <input type='radio' name='greater-less-between' value='between'>
+            <input type='radio' name='greater-less-between' value='year'>
             <label for='between-input'> Between </label>
             <input type='number' name='between-low-param' min='2015' max ='2020'>
             <br><br>

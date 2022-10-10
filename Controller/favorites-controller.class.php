@@ -8,13 +8,9 @@
     }
 
     public function clearFavoriteSongs(){
-      session_unset('favorites');
+      unset($_SESSION['favorites']);
     }
-    public function getFavorites(){
-      session_start(); // Session is started as the user logs onto the website
-      $favoriteSongs = $_SESSION['favorites'];
-      return $favoriteSongs();
-    }
+
     public function getFavoritesData(){
       $rowData = array();
       if (isset($_SESSION['favorites'])){

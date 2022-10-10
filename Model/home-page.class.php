@@ -45,10 +45,11 @@
     # Only way I can think of doing this one is to use a subquery to check the
     # number of appearences of a certain artist,
     protected function getOneHitWonders(){
-      $sql = "SELECT artists.artist_name AS `Artist Name`, COUNT(songs.artist_id) AS `Num Songs`
+      $sql = "SELECT artists.artist_name AS `Artist Name`, songs.title AS `Song Title`
               FROM songs
               INNER JOIN artists ON artists.artist_id = songs.artist_id
-              GROUP BY artists.artist_id
+              GROUP BY songs.artist_id
+              HAVING COUNT(songs.song_id) = 1
               ORDER BY songs.popularity DESC
               LIMIT 10";
       $results = $this->databaseConnect()->query($sql);

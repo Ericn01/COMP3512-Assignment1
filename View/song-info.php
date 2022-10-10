@@ -49,14 +49,14 @@
   function makeSongInfoAnalysis($bpm, $energy, $danceability, $liveness, $valence, $acousticness, $speechiness, $popularity, $songObj){
     echo "<div class='song-info analysis'>";
       echo "<h2 class='analysis-header'> Song Analysis </h2>";
-      makeSongAttributeBox('Popularity', $popularity, $songObj->getPopularity(), 'Not Popular', 'Very Popular', 55, 91);
-      makeSongAttributeBox('BPM', $bpm, $songObj->getBpm(), 'Slow Tempo', 'Rapid Tempo', 66, 204);
-      makeSongAttributeBox('Energy', $energy, $songObj->getEnergy(), 'Low Energy', 'High Energy', 11, 95);
+      makeSongAttributeBox('Popularity', $popularity, $songObj->getPopularity(), 'Least Popular', 'Most Popular', 55, 91);
+      makeSongAttributeBox('BPM', $bpm, $songObj->getBpm(), 'Slowest Tempo', 'Fastest Tempo', 66, 204);
+      makeSongAttributeBox('Energy', $energy, $songObj->getEnergy(), 'Least Energy', 'Most Energy', 11, 95);
       makeSongAttributeBox('Valence', $valence, $songObj->getValence(), 'Sad Mood', 'Happy Mood', 4, 95);
-      makeSongAttributeBox('Acousticness', $acousticness, $songObj->getAcousticness(), 'Not Acoustic', 'Very Acoustic', 0, 98);
-      makeSongAttributeBox('Speechiness', $speechiness, $songObj->getSpeechiness(), 'Less Lyrics', 'More Lyrics', 2, 53);
-      makeSongAttributeBox('Liveness', $liveness, $songObj->getLiveness(), 'Low Liveness', 'High Liveness', 2, 82);
-      makeSongAttributeBox('Danceability', $danceability, $songObj->getDanceability(), "Not Danceable", 'Very Danceable', 33, 96);
+      makeSongAttributeBox('Acousticness', $acousticness, $songObj->getAcousticness(), 'Least Acoustic', 'Most Acoustic', 0, 98);
+      makeSongAttributeBox('Speechiness', $speechiness, $songObj->getSpeechiness(), 'Least lyrical', 'Most lyrical', 2, 53);
+      makeSongAttributeBox('Liveness', $liveness, $songObj->getLiveness(), 'Lowest liveness', 'Most Liveness', 2, 82);
+      makeSongAttributeBox('Danceability', $danceability, $songObj->getDanceability(), "Least Danceable", 'Most danceable', 33, 96);
     echo "</div>";
   }
 ?>

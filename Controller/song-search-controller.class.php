@@ -87,6 +87,9 @@ include "../Model/song-search.class.php";
           else if ($this->checkField('greater-input') && $selection == 'greater'){
             $val = $this->validateNumberInput(intval($_POST['greater-input']));
           }
+          else {
+            echo "Error";
+          }
           $arr = array($param,  array($val, $selection)); // [0 ($param), 1 ->[0 ($val), 1 ($selection)]]
           return $arr;
         }
@@ -131,6 +134,7 @@ include "../Model/song-search.class.php";
         }
         // Year search form processing. Should've processed this differently. Very difficult to follow.
         private function getYearFormValue(){
+          var_dump($_POST);
           $entries; // Declaring the entries variable (will later store DB results)
           if ($this->checkField('greater-less-between')){
             $selection = $_POST['basic-song-selection']; // Radio button selection will be year when this method is called.
@@ -139,7 +143,7 @@ include "../Model/song-search.class.php";
             // same procedure for less and greater inputs
             if ($innerSelection == 'greater') {
               $yearGreaterThan = 2016; // Default case
-              if ($this->checkField('greater')){
+              if ($this->checkField('year-greater-input')){
                 $yearGreaterThan = intval($_POST['year-greater-input']);
               }
               $valueArr = array($selection, array($yearGreaterThan, $innerSelection));

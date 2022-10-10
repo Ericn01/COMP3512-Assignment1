@@ -50,7 +50,6 @@
            else if ($selection == 'greater') {
             $sql .= " WHERE $param > ?";
           }
-          echo "$sql : $value";
           $statement = $this->databaseConnect()->prepare($sql);
           $statement->execute([$value]);
           $results = $statement->fetchAll();
