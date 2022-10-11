@@ -1,26 +1,26 @@
 <?php
   include "../Controller/song-search-controller.class.php";
   # This is reused everywhere on this page, so might as well make it a function.
-  function makeLessAndGreaterMarkup($value){
+  function makeLessAndGreaterMarkup($attribute){
     $paragraphClass = 'less-greater-inputs';
     // Less input value section
-    echo "<p class='$paragraphClass'>";
+    echo "<div class='$paragraphClass'>";
       echo "<input type='radio' name='greater-less-between' value='less'>";
       echo "<label for='less'> Less </label>";
       echo "<p>";
-        echo "<input type='number' min='0' max='100' name='less-input'>";
+        echo '<input type="number" min="0" max="100" name="less-input-' . $attribute . '">';
       echo "</p>";
-    echo "</p>";
-
+    echo "</div>";
     // Greater input value section
-    echo "<p class='$paragraphClass'>";
+    echo "<div class='$paragraphClass'>";
       echo "<input type='radio' name='greater-less-between' value='greater'>";
       echo "<label for='greater'> Greater </label>";
       echo "<p>";
-        echo "<input type='number' min='0' max='100' name='greater-input'>";
+        echo '<input type="number" min="0" max="100" name="greater-input-' . $attribute . '">';
       echo "</p>";
-    echo "</p>";
+    echo "</div>";
   }
+
   # Responsible for generating the advanced song search boxes within the
   function makeAttributeBox($attributeName){
     echo "<div class='sub-input $attributeName'>";
@@ -120,6 +120,7 @@
         <!-- Advanced song search section -->
         <h2> Advanced Song Search </h2>
         <div class='advanced-song-search'>
+
             <?php
               define('NUM_BOXES',  6); // Number of boxes that we are going to be printing out to the screen
               $attributes = array('energy', 'danceability', 'liveness', 'valence', 'acousticness', 'speechiness');

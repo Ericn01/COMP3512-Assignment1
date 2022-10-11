@@ -58,6 +58,10 @@ form{
 
 input[type='radio']{
     margin-right: 7.5px;
+    cursor: pointer;
+}
+input[type='radio']:checked{
+   box-shadow: 1px var(--highlight-color);
 }
 input[type='text'], select, input[type='number'] {
     margin-left: 1rem;
@@ -69,26 +73,7 @@ input[type='text'], select, input[type='number'] {
     background: none;
     border-bottom: 2px solid black;
 }
-button{
-    cursor:pointer;
-    padding: 8px;
-    width: 9rem;
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    background-color: var(--highlight-color);
-    border-radius: 7.5px;
-    font-weight: bold;
-    border: 1px solid black;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    margin: auto;
-}
-.button-wrapper{
-  text-align: center;
-}
-button:hover{
-  box-shadow: 2px 2px 3px black;
-}
+
 
 .less-greater-inputs{
     margin-left: 12px;
@@ -101,6 +86,7 @@ h2{
     text-align: center;
     margin-bottom: 2rem;
 }
+
 
 .note{
   font-size: 20px;

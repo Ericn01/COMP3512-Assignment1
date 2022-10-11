@@ -11,6 +11,10 @@ include "../Model/song-search.class.php";
             $rows = $this->getartists();
             return $rows;
         }
+        /* Fills an array that contains information about the user's form selection
+           arr        refers to the array that will contain the desired form information
+           paramName  refers to the name of the search parameter that was selected (year, genre, artist, etc)
+           val        refers to the value that the user passes for the given search parameter. */
         private function addValues($arr, $paramName, $val){
           $arr[] = $paramName; // append the parameter name to the array
           if ($val != "" && isset($val)){
@@ -21,7 +25,7 @@ include "../Model/song-search.class.php";
           }
           return $arr;
         }
-
+        /* This function returns the user's form information. Based on*/
         public function getFormValues(){
           $entries;
           // We need a funnel to know what form has been used.
@@ -41,6 +45,7 @@ include "../Model/song-search.class.php";
           }
           return $entries;
         }
+        /* This function checks if the given field (radio button) has been selected */
         private function checkField($fieldName){
           if (isset($_POST[$fieldName])){
             return true;
@@ -81,15 +86,16 @@ include "../Model/song-search.class.php";
         // Retrieves the selected values for the analysis data
         private function getSelectionValue($param, $selection){
           $val = 100;
-          if ($this->checkField('less-input') && $selection == 'less'){ // Check to see if the user selected the "less radio button, and that the input has a value"
-            $val = $this->validateNumberInput(intval($_POST['less-input']));
+          if ($this->checkField("less-input-$param") && $selection == 'less'){ // Check to see if the user selected the "less radio button, and that the input has a value"
+            $val = $this->validateNumberInput(intval($_POST["greater-input-$param"]));
           }
-          else if ($this->checkField('greater-input') && $selection == 'greater'){
-            $val = $this->validateNumberInput(intval($_POST['greater-input']));
+          else if ($this->checkField("greater-input-$param") && $selection == 'greater'){
+            $val = $this->validateNumberInput(intval($_POST["greater-input-$param"]));
           }
           else {
             echo "Error";
           }
+
           $arr = array($param,  array($val, $selection)); // [0 ($param), 1 ->[0 ($val), 1 ($selection)]]
           return $arr;
         }
@@ -134,7 +140,6 @@ include "../Model/song-search.class.php";
         }
         // Year search form processing. Should've processed this differently. Very difficult to follow.
         private function getYearFormValue(){
-          var_dump($_POST);
           $entries; // Declaring the entries variable (will later store DB results)
           if ($this->checkField('greater-less-between')){
             $selection = $_POST['basic-song-selection']; // Radio button selection will be year when this method is called.

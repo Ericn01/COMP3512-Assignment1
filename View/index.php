@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <?php
   include '../Controller/home-controller.class.php';
-
-
   $homeControl = new HomePageController();
   function makeTwoAttributeTable($results, $label1, $label2, $colName1, $colName2, $isScoreTable){
     echo "<table>";
@@ -13,7 +11,7 @@
         echo "</tr>";
       echo "</thead>";
       echo "<tbody>";
-        if ($isScoreTable){
+        if ($isScoreTable){ // If the table has a score attribute to it (Clubbing, running, studying)
           foreach($results as $r){
             echo "<tr>";
               $score = intval($r[$colName2]);
@@ -26,7 +24,12 @@
           foreach($results as $r){
             echo "<tr>";
               echo "<td> " . $r["$colName1"] . "</td>";
-              echo "<td> " . $r["$colName2"] . "</td>";
+              if ($colName2 == 'duration'){
+                echo "<td> " . substr(gmdate("i:s", intval($r["$colName2"])), 1) . "</td>";
+              }
+              else{
+                echo "<td> " . $r["$colName2"] . "</td>";
+              }
             echo "</tr>";
           }
         }
