@@ -49,6 +49,15 @@ tr{
 tr:nth-child(even){
   background-color: var(--complimentary-color);
 }
+/* Global link styling */
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  text-decoration: underline;
+  color: blue;
+}
 
 /* Global button styles */
 button{

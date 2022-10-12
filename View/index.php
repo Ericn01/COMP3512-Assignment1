@@ -110,5 +110,4 @@
    </main>
    <?php include 'footer.php'; ?>
 </body>
-<script> function test(alert('hey there!');)</script>
 </html>

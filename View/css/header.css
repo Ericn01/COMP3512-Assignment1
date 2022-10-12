@@ -6,7 +6,6 @@ header{
   align-items: center;
   padding: 20px 10px;
 }
-
 .main-content{
   margin-right: auto;
 }
@@ -20,4 +19,28 @@ header{
 a:hover{
   transition: 0.25s ease;
   color: var(--highlight-color);
+}
+
+@media only screen and (max-width: 1000px){
+  .nav-links li{
+    font-size: 19px;
+  }
+  h3{
+    font-size: 22px;
+  }
+  h2{
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 750px){
+  .nav-links li{
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .nav-links li{
+    font-size: 13px;
+  }
 }
