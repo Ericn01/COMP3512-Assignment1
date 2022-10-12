@@ -83,6 +83,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Home</title>
    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+   <!-- Static styles -->
    <link href="css/home-styles.css" rel="stylesheet">
    <link href="css/global-styles.css" rel="stylesheet">
 </head>
@@ -109,4 +110,5 @@
    </main>
    <?php include 'footer.php'; ?>
 </body>
+<script> function test(alert('hey there!');)</script>
 </html>

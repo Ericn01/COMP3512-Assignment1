@@ -1,10 +1,5 @@
 /* Note: table CSS design inspired by https://www.youtube.com/watch?v=Oy9K7iz3aa4&ab_channel=AngelaDelise */
-:root{
-  --dominant-color: #7209b7;
-  --contrasting-color: #32BEAF;
-  --complimentary-color: #008080;
-  --highlight-color: #FFA2FF;
-}
+
 
 td{
   width: 16.66%;
@@ -78,7 +73,6 @@ tr:hover{
   }
   thead tr th{
     font-size: 13px;
-    letter-spacing: none;
   }
   table{
     width: 100%;

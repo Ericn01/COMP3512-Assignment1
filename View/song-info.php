@@ -77,7 +77,9 @@
       makeSongInfoTop($title, $year, $artist, $genre, $duration);
       makeSongInfoAnalysis($bpm, $energy, $danceability, $liveness, $valence, $acousticness, $speechiness, $popularity, $songObj);
      ?>
+     
    </main>
+
    <?php include 'footer.php'; ?>
 </body>
 </html>

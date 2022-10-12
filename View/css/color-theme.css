@@ -1,0 +1,7 @@
+/* This page contains the default color theme that every page will utilize */
+:root{
+  --dominant-color: #7209b7;
+  --contrasting-color: #32BEAF;
+  --complimentary-color: #008080;
+  --highlight-color: #FFA2FF;
+}

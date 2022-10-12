@@ -1,10 +1,4 @@
-@import url("font-selection.css"); /*Imports font selection and color palette */
-:root{
-  --dominant-color: #7209b7;
-  --contrasting-color: #32BEAF;
-  --highlight-color: #FFA2FF;
-  --complimentary-color: #008080;
-}
+@import "color-theme.css";
 
 .grid-container{
   display: grid;
@@ -68,7 +62,7 @@ h1{
   font-size: 50px;
 }
 .analysis-trait h3{
-  letter-spacing: 1.2px;
+  ter-spacing: 1.2px;
   font-weight: 800;
 }
 .analysis-header{
@@ -113,7 +107,7 @@ p{
     grid-column: span 2;
   }
   .analysis-trait h3{
-    letter-spacing: 1px;
+    ter-spacing: 1px;
   }
   progress{
     width: 6rem;

@@ -1,10 +1,6 @@
-:root{
-  --dominant-color: #7209b7;
-  --contrasting-color: #32BEAF;
-  --background-color: #211925;
-  --highlight-color: #FFA2FF;
-}
-.foot-list{
+@import "color-theme.css";
+
+.foot-list, .themes-list{
   display: flex;
   justify-content: space-between;
   padding: 25px 8%;

@@ -16,10 +16,6 @@
             return $rows;
         }
 
-        # =============================== HOME PAGE QUERIES ================================ #
-        protected function getTopGenres(){
-
-        }
         # =========================== FAVORITES PAGE CONSTRUCTED QUERY ====================== #
         public function getFavorite($songId){
           $sql = self::$baseSql;

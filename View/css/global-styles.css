@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Roboto:wght@300&display=swap');
-
-:root{
-  --dominant-color: #7209b7;
-  --contrasting-color: #32BEAF;
-  --background-color: #211925;
-  --highlight-color: #FFA2FF;
-}
+@import "color-theme.css";
 *{
   box-sizing: border-box;
   margin: 0;
@@ -43,7 +37,6 @@ th{
   background-color: var(--highlight-color);
   padding: 0.8rem 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
   font-weight: bolder;
   font-size: 1rem;
 }

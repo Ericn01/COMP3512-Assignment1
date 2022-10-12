@@ -10,7 +10,6 @@
     echo "<h2> $assignmentName </h2>";
     echo "<h3> $author </h3>";
   echo "</div>";
-
   echo "<nav>";
     echo "<ul class='nav-links'>";
         echo "<li> <a href='index.php'> Home </a> </li>";
@@ -20,4 +19,5 @@
     echo "</ul>";
   echo "</nav>";
   ?>
+  <script src='theme.js'></script>
 </header>

@@ -1,9 +1,4 @@
-:root{
-  --dominant-color: #7209b7;
-  --contrasting-color: #32BEAF;
-  --highlight-color: #FFA2FF;
-  --complimentary-color: #008080;
-}
+@import "color-theme.css";
 
 header{
   display: flex;
