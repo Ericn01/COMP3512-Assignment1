@@ -74,7 +74,7 @@
       case "midnight-moon":
          dominantColor = '#1d3557';
          contrastingColor = '#457b9d';
-         highlightColor = '#f1faee';
+         highlightColor = 'lightblue';
          complimentaryColor = '#a8dadc';
          break;
       case "gentle-beauty":

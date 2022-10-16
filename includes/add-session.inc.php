@@ -4,7 +4,8 @@
     if (!empty($songId) && strcmp($favAdded, 'T') == 0){
       if (!isset($_SESSION['favorites'])) {
         $favoritesArray = array(); // Creating a favorite songs array
-        $_SESSION['favorites'] = $favoritesArray;
+        $_SESSION['favorites'] = $favoritesArray; // Create the favorite session variable
+        array_push($_SESSION['favorites'], $songId); // Add the selected song into it.
       }
       else if(!checkIfSongExists($songId)){ // if the song isn't already in the session array, add it in.
         array_push($_SESSION['favorites'], $songId);
