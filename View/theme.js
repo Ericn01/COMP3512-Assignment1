@@ -33,14 +33,24 @@
       chooseTheme(getThemeCookie(document.cookie)); // Overrides the default color theme whenever a page load occurs.
   }
   /**
-  * The split function divides the cookie into their key value pairs (seperated by semicolon)
-  * Third key value pair in the cookie array is for theme data (hard coded right now)
-  * Twelth character in the key value pair represents the beginning of the value
+  * The split function divides the cookie into its constituent key value pairs (seperated by semicolon)
+  * If one of the arrays contains the key "themeName", then the themeCookie is at the specified index
+  * The twelth character (index 11) of the key value pair represents the beginning of the value
   */
-  function getThemeCookie(theme) {
-    const themeKeyValueIndex = 2;
+  function getThemeCookie(cookieString) {
+    let cookies = cookieString.split(";");
+    let themeCookie = null;
     const valueSubstringStart = 11;
-    return theme.split(";")[themeKeyValueIndex].substring(valueSubstringStart);
+    for (let i = 0; i < cookies.length; i++){
+      if (cookies[i].includes("themeName")){
+        themeCookie = cookies[i];
+        break;
+      }
+    }
+    if (!themeCookie){
+      return "purple-madness"; // Default style
+    }
+    return themeCookie.substring(valueSubstringStart);
   }
   function chooseTheme(userTheme){
     let rootSelection = document.querySelector(':root');
