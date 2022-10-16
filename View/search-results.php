@@ -50,6 +50,7 @@
    <?php include 'header.php'; ?>
    <main class="container">
      <h1> Search Results </h1>
+     <h2 class='favorites-info'> To add a song as a favorite, press the x. To remove a favorite, press the checkmark. </h2>
      <!-- This page is going to be presenting a large table containing the desired song data -->
      <table>
        <thead>

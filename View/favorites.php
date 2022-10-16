@@ -10,7 +10,9 @@
   $songId = substr($_SERVER['QUERY_STRING'], SONG_ID_OFFSET); // Retrieves the song ID from the querystring
   $favAdded = substr($_SERVER['QUERY_STRING'], FAV_ADDED_OFFSET, FAV_ADDED_LENGTH);
   $favController = new FavoritesController($songId);
+
   addSession($songId, $favAdded); // Adds the specified song ID to the session when the page is loaded.
+
   if (isset($_GET['clear-songs'])){ // If a post request exists on this webpage, it'll be from the button.
     $favController->clearFavoriteSongs(); // Removes all favorite songs
   }

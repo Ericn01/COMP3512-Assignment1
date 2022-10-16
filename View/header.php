@@ -19,5 +19,4 @@
     echo "</ul>";
   echo "</nav>";
   ?>
-  <script src='theme.js'></script>
 </header>

@@ -1,37 +1,53 @@
-
   window.onload = function(){ // Wait to load the JS file so there aren't any weird bugs
-    let themeButtons = document.getElementsByClassName("theme-btn"); // retrieving an array that contains all the theme buttons.
-    for (let i = 0; i < themeButtons.length; i++){
-      let themeName = "";
-      switch(i){
-        case 0:
-          themeName = "simple-elegance";
-          break;
-        case 1:
-          themeName = "mango-tango";
-          break;
-        case 2:
-          themeName = "purple-madness";
-          break;
-        case 3:
-          themeName = "midnight-moon";
-          break;
-        case 4:
-          themeName = "gentle-beauty";
-          break;
-        default:
+      let cookieThemeValue = "";
+      let themeButtons = document.getElementsByClassName("theme-btn");  // retrieving an array that contains all the theme buttons.
+      for (let i = 0; i < themeButtons.length; i++){
+        themeButtons[i].addEventListener("click", function(){
+          switch(i){
+            case 0:
+              cookieThemeValue = "simple-elegance";
+              break;
+            case 1:
+              cookieThemeValue = "mango-tango";
+              break;
+            case 2:
+              cookieThemeValue = "purple-madness";
+              break;
+            case 3:
+              cookieThemeValue =  "midnight-moon";
+              break;
+            case 4:
+              cookieThemeValue =  "gentle-beauty";
+              break;
+            case 5:
+              cookieThemeValue = "mellow-yellow";
+              break;
+            default:
+              break;
+            }
+          document.cookie = `themeName=${cookieThemeValue}; expires=Sat, 24 May 2031 00:00:00 GMT; path=/`; // setting the cookie value
+          let themeName = getThemeCookie(document.cookie);
+          chooseTheme(themeName);
+        });
       }
-      themeButtons[i].addEventListener("click", function(){
-        chooseTheme(themeName);
-      });
-    }
+      chooseTheme(getThemeCookie(document.cookie)); // Overrides the default color theme whenever a page load occurs.
   }
-
+  /**
+  * The split function divides the cookie into their key value pairs (seperated by semicolon)
+  * Third key value pair in the cookie array is for theme data (hard coded right now)
+  * Twelth character in the key value pair represents the beginning of the value
+  */
+  function getThemeCookie(theme) {
+    const themeKeyValueIndex = 2;
+    const valueSubstringStart = 11;
+    return theme.split(";")[themeKeyValueIndex].substring(valueSubstringStart);
+  }
   function chooseTheme(userTheme){
-    let dominantColor = '#fbfefb';
-    let contrastingColor = '#efe5dc';
-    let highlightColor = '#f3d8c7';
-    let complimentaryColor = '#d0b8ac';
+    let rootSelection = document.querySelector(':root');
+    let dominantColor = '#1C6758';
+    let contrastingColor = '#2b7261';
+    let highlightColor = '#FA7070';
+    let complimentaryColor = '#3D8361';
     switch(userTheme){
       case "mango-tango":
          dominantColor = '#F9DB6D';
@@ -57,11 +73,17 @@
           highlightColor = '#ffa69e';
           complimentaryColor = '#aed9e0';
           break;
+      case "mellow-yellow":
+          dominantColor = '#fcfb00';
+          contrastingColor = '#fcab00';
+          highlightColor = "violet";
+          complimentaryColor = '#F6C604';
+          break;
       default:
         break;
     }
-    document.body.style.setProperty('--dominant-color', dominantColor);
-    document.body.style.setProperty('--contrasting-color', contrastingColor);
-    document.body.style.setProperty('--highlight-color', highlightColor);
-    document.body.style.setProperty('--complimentary-color', complimentaryColor);
+    rootSelection.style.setProperty('--dominant-color', dominantColor);
+    rootSelection.style.setProperty('--contrasting-color', contrastingColor);
+    rootSelection.style.setProperty('--highlight-color', highlightColor);
+    rootSelection.style.setProperty('--complimentary-color', complimentaryColor);
   }

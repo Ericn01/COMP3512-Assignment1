@@ -1,5 +1,7 @@
 @import "color-theme.css";
-
+.label{
+  padding: 10px 12px;
+}
 .grid-container{
   color: black;
   display: grid;

@@ -1,16 +1,11 @@
 /* Note: table CSS design inspired by https://www.youtube.com/watch?v=Oy9K7iz3aa4&ab_channel=AngelaDelise */
-
-
+.favorites-info{
+  font-size: 16px;
+  text-align: center;
+  padding: 15px;
+}
 td{
   width: 16.66%;
-}
-a{
-  text-decoration: none;
-  color: black;
-}
-a:hover{
-  text-decoration: underline;
-  color: blue;
 }
 tr:hover{
   cursor: pointer;
@@ -89,6 +84,9 @@ tr:hover{
   }
   h2{
     font-size: 18.5px;
+  }
+  .favorites-info{
+    font-size: 14px;
   }
   h3{
     font-size: 16px;

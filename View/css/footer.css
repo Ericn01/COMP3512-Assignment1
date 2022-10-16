@@ -39,7 +39,7 @@ a{
 }
 
 .simple{
-  background: linear-gradient(#fbfefb, #f3d8c7);
+  background: linear-gradient(#1C6758, #f3d8c7);
 }
 .mango{
   background: linear-gradient(#f9db6d, #f78154);
@@ -52,6 +52,9 @@ a{
 }
 .gentle{
   background: linear-gradient(#ffffff, #ffa69e);
+}
+.mellow{
+  background: linear-gradient(#fcfb00,#FA7070);
 }
 
 @media only screen and (max-width: 875px){

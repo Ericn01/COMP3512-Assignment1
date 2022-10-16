@@ -87,7 +87,7 @@ include "../Model/song-search.class.php";
         private function getSelectionValue($param, $selection){
           $val = 100;
           if ($this->checkField("less-input-$param") && $selection == 'less'){ // Check to see if the user selected the "less radio button, and that the input has a value"
-            $val = $this->validateNumberInput(intval($_POST["greater-input-$param"]));
+            $val = $this->validateNumberInput(intval($_POST["less-input-$param"]));
           }
           else if ($this->checkField("greater-input-$param") && $selection == 'greater'){
             $val = $this->validateNumberInput(intval($_POST["greater-input-$param"]));
@@ -95,7 +95,6 @@ include "../Model/song-search.class.php";
           else {
             echo "Error";
           }
-
           $arr = array($param,  array($val, $selection)); // [0 ($param), 1 ->[0 ($val), 1 ($selection)]]
           return $arr;
         }
