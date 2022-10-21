@@ -73,16 +73,18 @@ h1{
   align-self: start;
   font-size: 28px;
 }
-progress{
-  -webkit-appearance: none;
-  margin: 0 12px;
+.meter-bar{
+  -webkit-appearance: meter;
+  margin: 0 20px;
   width: 7.5rem;
-  height: 16px;
   overflow: hidden;
+}
+meter::-webkit-meter-bar {
+  height: 1rem;
+  background: var(--contrasting-color);
   border: 0.2px solid black;
   border-radius: 20px;
-}
-progress::-webkit-progress-value { background: var(--highlight-color); } /* Chrome & others */
+} /* Chrome & others */
 progress::-moz-progress-bar { background: var(--highlight-color);} /* Firefox browser */
 .progress-info{
   text-align: center;
@@ -90,6 +92,10 @@ progress::-moz-progress-bar { background: var(--highlight-color);} /* Firefox br
   font-weight: bold;
 }
 
+meter::-webkit-meter-optimum-value {
+    background:  var(--highlight-color);
+    background: -moz-linear-gradient(top, #a1d4e6 0%, #6bb4d1 100%);
+}
 p{
   margin-top: 15px;
   font-size: 18px;

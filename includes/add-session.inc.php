@@ -23,10 +23,10 @@
       unset($_SESSION['favorites'][$key]);
     }
     else{
-      echo "Song not found";
+      unset($_SESSION['favorites']);
     }
   }
-  function checkIfSongExists($songId){ // Search for
+  function checkIfSongExists($songId){ // Check to see that the given song id is in the favorites list
     if (in_array($songId, $_SESSION['favorites'])){
       return true;
     }

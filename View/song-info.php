@@ -41,7 +41,7 @@
       echo "<h3> $paramName </h3>";
       echo "<p> $paramInterpreted </p>";
       echo "<br>";
-      echo "<p class='progress-info'>" . $lowEnd. "<progress class='progress-bar' value=" . $value . " min='" . $min ."'  max='" . $max ."'> </progress>" . $highEnd . "</p>";
+      echo "<p class='progress-info'>" . $lowEnd. "<meter class='meter-bar' value=" . $value . " min='" . $min ."'  max='" . $max ."'> </meter>" . $highEnd . "</p>";
 
     echo "</div>";
   }
@@ -54,9 +54,9 @@
       makeSongAttributeBox('Energy', $energy, $songObj->getEnergy(), 'Least Energy', 'Most Energy', 11, 95);
       makeSongAttributeBox('Valence', $valence, $songObj->getValence(), 'Sad Mood', 'Happy Mood', 4, 95);
       makeSongAttributeBox('Acousticness', $acousticness, $songObj->getAcousticness(), 'Least Acoustic', 'Most Acoustic', 0, 98);
-      makeSongAttributeBox('Speechiness', $speechiness, $songObj->getSpeechiness(), 'Least lyrical', 'Most lyrical', 2, 53);
-      makeSongAttributeBox('Liveness', $liveness, $songObj->getLiveness(), 'Lowest liveness', 'Most Liveness', 2, 82);
-      makeSongAttributeBox('Danceability', $danceability, $songObj->getDanceability(), "Least Danceable", 'Most danceable', 33, 96);
+      makeSongAttributeBox('Speechiness', $speechiness, $songObj->getSpeechiness(), 'Least Lyrical', 'Most Lyrical', 2, 53);
+      makeSongAttributeBox('Liveness', $liveness, $songObj->getLiveness(), 'Lowest Liveness', 'Most Liveness', 2, 82);
+      makeSongAttributeBox('Danceability', $danceability, $songObj->getDanceability(), "Least Danceable", 'Most Danceable', 33, 96);
     echo "</div>";
   }
 ?>
@@ -77,7 +77,6 @@
       makeSongInfoTop($title, $year, $artist, $genre, $duration);
       makeSongInfoAnalysis($bpm, $energy, $danceability, $liveness, $valence, $acousticness, $speechiness, $popularity, $songObj);
      ?>
-     
    </main>
 
    <?php include 'footer.php'; ?>
