@@ -30,7 +30,6 @@
           chooseTheme(themeName);
         });
       }
-      chooseTheme(getThemeCookie(document.cookie)); // Overrides the default color theme whenever a page load occurs.
   }
   /**
   * The split function divides the cookie into its constituent key value pairs (seperated by semicolon)
